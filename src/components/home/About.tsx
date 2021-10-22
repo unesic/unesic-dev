@@ -4,15 +4,13 @@ import { Container } from "@chakra-ui/react";
 import { Grid, GridItem, List, ListItem } from "@chakra-ui/react";
 import { Heading, Text, Code } from "@chakra-ui/react";
 
-import { useColorMode } from "@chakra-ui/react";
+interface AboutProps {
+	colorMode: "dark" | "light";
+}
 
-interface AboutProps {}
-
-export const About: React.FC<AboutProps> = ({}) => {
-	const { colorMode } = useColorMode();
-
+export const About: React.FC<AboutProps> = ({ colorMode }) => {
 	return (
-		<Container maxW="container.xl" px="12" py="32">
+		<Container id="about" maxW="container.xl" px="12" py="32">
 			<Code>Who the hell is this guy?</Code>
 			<Heading variant="h3" as="h3">
 				About me.

@@ -1,15 +1,50 @@
-import React from "react";
+/**
+ * React
+ */
+import React, { useEffect, useState } from "react";
 
-import { Container } from "@chakra-ui/react";
-import { Grid, GridItem } from "@chakra-ui/react";
-import { Heading, Text, Code, Button } from "@chakra-ui/react";
+/**
+ * Chakra UI components
+ */
+import {
+	Container,
+	Grid,
+	GridItem,
+	Heading,
+	Text,
+	Code,
+	Button,
+	Image,
+} from "@chakra-ui/react";
 
-interface HeroProps {}
+/**
+ * Images
+ */
+import fullDark from "../../images/illo-full-dark.svg";
+import fullLight from "../../images/illo-full-light.svg";
 
-export const Hero: React.FC<HeroProps> = ({}) => {
+interface HeroProps {
+	colorMode: "dark" | "light";
+	headerRef: React.MutableRefObject<HTMLDivElement>;
+}
+
+export const Hero: React.FC<HeroProps> = ({ colorMode, headerRef }) => {
+	const [maxH, setMaxH] = useState<number>();
+
+	useEffect(() => {
+		const headerH = headerRef.current?.getBoundingClientRect().height;
+		const newMaxH = window.innerHeight - headerH;
+		setMaxH(newMaxH);
+	}, [headerRef]);
+
 	return (
-		<Container maxW="container.xl">
-			<Grid templateColumns="repeat(12, 1fr)" pt="28" minH="100vh">
+		<Container id="hero" maxW="container.xl">
+			<Grid
+				templateColumns="repeat(12, 1fr)"
+				maxH={`${maxH}px`}
+				h="100vh"
+				pt="40"
+			>
 				<GridItem colSpan={6}>
 					<Code>Hi, my name is</Code>
 					<Heading variant="h1" as="h1">
@@ -24,7 +59,13 @@ export const Hero: React.FC<HeroProps> = ({}) => {
 					</Text>
 					<Button mt="12">Get to know me!</Button>
 				</GridItem>
-				<GridItem colSpan={4}></GridItem>
+				<GridItem colSpan={4}>
+					<Image
+						src={colorMode == "dark" ? fullDark : fullLight}
+						alt="Character using laptop"
+						ml="auto"
+					/>
+				</GridItem>
 			</Grid>
 		</Container>
 	);

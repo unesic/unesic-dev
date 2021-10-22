@@ -4,17 +4,15 @@ import { Container, Box, VStack, HStack } from "@chakra-ui/react";
 import { Grid, GridItem } from "@chakra-ui/react";
 import { Heading, Text, Code, Link } from "@chakra-ui/react";
 
-import { useColorMode } from "@chakra-ui/react";
-
 import { Icon } from "@iconify/react";
 
-interface ProjectsProps {}
+interface ProjectsProps {
+	colorMode: "dark" | "light";
+}
 
-export const Projects: React.FC<ProjectsProps> = ({}) => {
-	const { colorMode } = useColorMode();
-
+export const Projects: React.FC<ProjectsProps> = ({ colorMode }) => {
 	return (
-		<Container maxW="container.xl" py="32">
+		<Container id="projects" maxW="container.xl" py="32">
 			<Code>Has he got anything to show?</Code>
 			<Heading variant="h3" as="h3">
 				My latest creations.

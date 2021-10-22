@@ -3,11 +3,13 @@ import React from "react";
 import { Container, Box } from "@chakra-ui/react";
 import { Heading, Text, Code, Button } from "@chakra-ui/react";
 
-interface ContactProps {}
+interface ContactProps {
+	colorMode: "dark" | "light";
+}
 
 export const Contact: React.FC<ContactProps> = ({}) => {
 	return (
-		<Container maxW="container.md" py="40">
+		<Container id="contact" maxW="container.md" py="40">
 			<Box px="4" textAlign="center">
 				<Code>He's okay I guess...</Code>
 				<Heading variant="h3" as="h3">

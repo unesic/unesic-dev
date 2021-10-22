@@ -4,15 +4,13 @@ import { Container, Box } from "@chakra-ui/react";
 import { List, ListItem } from "@chakra-ui/react";
 import { Heading, Text, Code, Link } from "@chakra-ui/react";
 
-import { useColorMode } from "@chakra-ui/react";
+interface ExperienceProps {
+	colorMode: "dark" | "light";
+}
 
-interface ExperienceProps {}
-
-export const Experience: React.FC<ExperienceProps> = ({}) => {
-	const { colorMode } = useColorMode();
-
+export const Experience: React.FC<ExperienceProps> = ({ colorMode }) => {
 	return (
-		<Container maxW="container.lg" py="32">
+		<Container id="experience" maxW="container.lg" py="32">
 			<Code>Does he have any experience?</Code>
 			<Heading variant="h3" as="h3">
 				Where I’ve worked.

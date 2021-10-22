@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button, useColorMode } from "@chakra-ui/react";
 
 import { Header } from "components/Header";
@@ -10,19 +10,20 @@ import { Projects } from "components/home/Projects";
 import { Contact } from "components/home/Contact";
 
 const IndexPage: React.FC = () => {
-	const { toggleColorMode } = useColorMode();
+	const { colorMode, toggleColorMode } = useColorMode();
+	const headerRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 
 	return (
 		<main>
 			<Button position="fixed" inset="4" onClick={toggleColorMode}></Button>
 
-			<Header />
+			<Header colorMode={colorMode} ref={headerRef} />
 
-			<Hero />
-			<About />
-			<Experience />
-			<Projects />
-			<Contact />
+			<Hero colorMode={colorMode} headerRef={headerRef} />
+			<About colorMode={colorMode} />
+			<Experience colorMode={colorMode} />
+			<Projects colorMode={colorMode} />
+			<Contact colorMode={colorMode} />
 		</main>
 	);
 };
