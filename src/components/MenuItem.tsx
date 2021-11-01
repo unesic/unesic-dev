@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { Text, Button, Link } from "@chakra-ui/react";
 
 interface MenuItemProps {
-	href: string;
+	href?: string;
 	char: number;
 	on: boolean;
 	isBtn?: boolean;
@@ -43,11 +43,11 @@ export const MenuItem: React.FC<MenuItemProps> = ({
 	}, [on]);
 
 	return isBtn ? (
-		<Button as="a" href="#">
+		<Button as="a" href={href ?? "#"}>
 			<Text as="span">{text}</Text>
 		</Button>
 	) : (
-		<Link href={href} variant="nav">
+		<Link href={href ?? "#"} variant="nav">
 			{text}
 		</Link>
 	);

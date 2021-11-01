@@ -27,18 +27,30 @@ import { MenuItem } from "components/MenuItem";
  */
 import headDark from "../images/illo-head-dark.svg";
 import headLight from "../images/illo-head-light.svg";
+import { DivRef } from "pages";
 
-interface HeaderProps {
-	colorMode: "dark" | "light";
-}
+type SectionT = {
+	id: string;
+	label?: string;
+	nav: {
+		num: number;
+		char: string;
+	};
+	ref: DivRef;
+};
 
 enum Platform {
 	MAC,
 	WIN,
 }
 
+interface HeaderProps {
+	mode: "dark" | "light";
+	sections: SectionT[];
+}
+
 export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
-	({ colorMode }, ref) => {
+	({ mode, sections }, ref) => {
 		const [navKey, setNavKey] = useBoolean();
 		const [secondKey, setSecondKey] = useState<string>();
 
@@ -54,18 +66,6 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 			return Platform.WIN;
 		}, []);
 
-		const sections: { [key: string]: string } = useMemo(
-			() => ({
-				B: "about",
-				E: "experience",
-				J: "projects",
-				O: "contact",
-				U: "resume",
-				H: "hero",
-			}),
-			[]
-		);
-
 		useEffect(() => {
 			document.body.addEventListener("keydown", onKeyDown);
 			document.body.addEventListener("keyup", onKeyUp);
@@ -78,11 +78,11 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 
 		useEffect(() => {
 			if (!(navKey && secondKey)) return;
-			// Scroll to specific section
-			console.log(secondKey);
-			document
-				.getElementById(sections[secondKey])
-				?.scrollIntoView({ block: "start", behavior: "smooth" });
+			const section = sections.find((s) => s.nav.char === secondKey);
+			section?.ref.current.scrollIntoView({
+				block: "start",
+				behavior: "smooth",
+			});
 		}, [navKey, secondKey]);
 
 		const onKeyDown = useCallback((e: KeyboardEvent) => {
@@ -91,7 +91,7 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 
 			setNavKey.on();
 
-			const options = "BEJOUH".split("");
+			const options = sections.map((s) => s.nav.char);
 			const char = e.key.toUpperCase();
 
 			if (!options.includes(char)) return;
@@ -117,7 +117,7 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 				>
 					<Box>
 						<Image
-							src={colorMode === "dark" ? headDark : headLight}
+							src={mode === "dark" ? headDark : headLight}
 							alt="Character head"
 						/>
 					</Box>
@@ -138,21 +138,16 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 								</Kbd>
 							</Tooltip>
 							<HStack spacing={1}>
-								<MenuItem href="#" char={1} on={navKey}>
-									About
-								</MenuItem>
-								<MenuItem href="#" char={3} on={navKey}>
-									Experience
-								</MenuItem>
-								<MenuItem href="#" char={3} on={navKey}>
-									Projects
-								</MenuItem>
-								<MenuItem href="#" char={1} on={navKey}>
-									Contact
-								</MenuItem>
+								{sections.map((s) =>
+									s.label ? (
+										<MenuItem key={s.id} char={s.nav.num} on={navKey}>
+											{s.label}
+										</MenuItem>
+									) : null
+								)}
 							</HStack>
 
-							<MenuItem href="#" char={3} on={navKey} isBtn>
+							<MenuItem char={3} on={navKey} isBtn>
 								Resume
 							</MenuItem>
 						</HStack>

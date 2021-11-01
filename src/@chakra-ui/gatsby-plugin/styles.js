@@ -5,7 +5,7 @@ export const styles = {
 		body: {
 			bg: mode("app.light.dusk.300", "app.dark.dusk.300")(props),
 			color: mode("app.light.dawn.300", "app.dark.dawn.300")(props),
-			fontSize: "xl",
+			fontSize: ["lg", "lg", "lg", "xl", "xl", "xl"],
 		},
 		li: {
 			fontSize: "md",

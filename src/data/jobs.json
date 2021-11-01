@@ -1,0 +1,36 @@
+[
+	{
+		"title": "WordPress Developer",
+		"date": {
+			"from": "February 2020",
+			"to": "Present"
+		},
+		"company": {
+			"name": "BlueGrid",
+			"url": "#"
+		},
+		"items": [
+			"Custom theme, templates and post types development for a highly trafficked website",
+			"Converting Figma designs to fully responsive, functional and interactive website pages",
+			"SEO and performance optimization using various caching and lazy-loading techniques",
+			"Custom solutions development using React along with TypeScript and 3rd party APIs",
+			"Production of clean, easily-maintainable and scaleable JavaScript, CSS and php code"
+		]
+	},
+	{
+		"title": "WordPress Developer",
+		"date": {
+			"from": "September 2018",
+			"to": "January 2020"
+		},
+		"company": {
+			"name": "Ivapix",
+			"url": "#"
+		},
+		"items": [
+			"Designed, developed and shipped beautiful and modern-looking websites for clients",
+			"Website hosting maintenance through cPanel and maintenance of the website itself",
+			"Tracked analytics and SEO performance using Google Search Console and Analytics"
+		]
+	}
+]

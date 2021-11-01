@@ -24,49 +24,77 @@ import fullDark from "../../images/illo-full-dark.svg";
 import fullLight from "../../images/illo-full-light.svg";
 
 interface HeroProps {
-	colorMode: "dark" | "light";
+	mode: "dark" | "light";
 	headerRef: React.MutableRefObject<HTMLDivElement>;
 }
 
-export const Hero: React.FC<HeroProps> = ({ colorMode, headerRef }) => {
-	const [maxH, setMaxH] = useState<number>();
+export const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
+	({ mode, headerRef }, ref) => {
+		const [maxH, setMaxH] = useState<number>();
 
-	useEffect(() => {
-		const headerH = headerRef.current?.getBoundingClientRect().height;
-		const newMaxH = window.innerHeight - headerH;
-		setMaxH(newMaxH);
-	}, [headerRef]);
+		useEffect(() => {
+			const headerH = headerRef.current?.getBoundingClientRect().height;
+			const newMaxH = window.innerHeight - headerH;
+			setMaxH(newMaxH);
+		}, [headerRef]);
 
-	return (
-		<Container id="hero" maxW="container.xl">
-			<Grid
-				templateColumns="repeat(12, 1fr)"
-				maxH={`${maxH}px`}
-				h="100vh"
+		return (
+			<Container
+				ref={ref}
+				id="hero"
+				maxW={[
+					"100%",
+					"container.sm",
+					"container.md",
+					"container.lg",
+					"container.xl",
+					"container.xl",
+				]}
 				pt="40"
 			>
-				<GridItem colSpan={6}>
-					<Code>Hi, my name is</Code>
-					<Heading variant="h1" as="h1">
-						Uroš Nešić.
-					</Heading>
-					<Heading variant="h2" as="h2">
-						I make web go brrr.
-					</Heading>
-					<Text mt="4">
-						A software engineer specializing in full-stack web development with
-						primary focus on the front-end technologies.
-					</Text>
-					<Button mt="12">Get to know me!</Button>
-				</GridItem>
-				<GridItem colSpan={4}>
-					<Image
-						src={colorMode == "dark" ? fullDark : fullLight}
-						alt="Character using laptop"
-						ml="auto"
-					/>
-				</GridItem>
-			</Grid>
-		</Container>
-	);
-};
+				<Grid
+					templateColumns="repeat(12, 1fr)"
+					maxH={[
+						"max-content",
+						"max-content",
+						"max-content",
+						`${maxH}px`,
+						`${maxH}px`,
+						`${maxH}px`,
+					]}
+					h={["auto", "auto", "auto", "100vh", "100vh", "100vh"]}
+				>
+					<GridItem
+						colSpan={[12, 12, 12, 6, 6, 6]}
+						textAlign={["center", "center", "center", "left", "left", "left"]}
+					>
+						<Code>Hi, my name is</Code>
+						<Heading variant="h1" as="h1">
+							Uroš Nešić.
+						</Heading>
+						<Heading variant="h2" as="h2">
+							I make web go brrr.
+						</Heading>
+						<Text
+							mt="4"
+							mx={["auto", "auto", "auto", "0", "0", "0"]}
+							maxW={["20rem", "25rem", "25rem", "100%", "100%", "100%"]}
+						>
+							A software engineer specializing in full-stack web development
+							with primary focus on the front-end technologies.
+						</Text>
+						<Button mt="12">Get to know me!</Button>
+					</GridItem>
+					<GridItem colSpan={[12, 12, 12, 4, 4, 4]}>
+						<Image
+							src={mode == "dark" ? fullDark : fullLight}
+							alt="Character using laptop"
+							ml="auto"
+							mr={["auto", "auto", "auto", "0", "0", "0"]}
+						/>
+					</GridItem>
+				</Grid>
+			</Container>
+		);
+	}
+);
