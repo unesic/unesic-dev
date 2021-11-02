@@ -78,7 +78,7 @@ export const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
 						<Text
 							mt="4"
 							mx={["auto", "auto", "auto", "0", "0", "0"]}
-							maxW={["20rem", "25rem", "25rem", "100%", "100%", "100%"]}
+							maxW={["22rem", "22rem", "22rem", "24rem", "100%", "100%"]}
 						>
 							A software engineer specializing in full-stack web development
 							with primary focus on the front-end technologies.

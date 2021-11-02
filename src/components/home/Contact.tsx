@@ -1,7 +1,6 @@
 import React from "react";
 
-import { Container, Box } from "@chakra-ui/react";
-import { Heading, Text, Code, Button } from "@chakra-ui/react";
+import { Container, Box, Heading, Text, Code, Button } from "@chakra-ui/react";
 
 interface ContactProps {
 	mode: "dark" | "light";

@@ -8,13 +8,10 @@
 		"gatsby"
 	],
 	"scripts": {
-		"develop": "gatsby develop",
 		"start": "gatsby develop",
 		"build": "gatsby build",
 		"serve": "gatsby serve",
-		"clean": "gatsby clean",
-		"postcss:watch": "TAILWIND_MODE=watch NODE_END=development postcss src/styles/main.css -o src/styles/main.min.css -w",
-		"postcss:build": "TAILWIND_MODE=build NODE_END=production postcss src/styles/main.css -o src/styles/main.min.css"
+		"clean": "gatsby clean"
 	},
 	"dependencies": {
 		"@chakra-ui/gatsby-plugin": "^2.0.1",

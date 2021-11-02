@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { Text, Button, Link } from "@chakra-ui/react";
+import { Box, Text, Button, Link } from "@chakra-ui/react";
 
 interface MenuItemProps {
 	href?: string;
@@ -9,6 +9,8 @@ interface MenuItemProps {
 	on: boolean;
 	isBtn?: boolean;
 	children: string;
+	target: string;
+	onClick: (e: any) => void;
 }
 
 export const MenuItem: React.FC<MenuItemProps> = ({
@@ -17,6 +19,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
 	on,
 	isBtn,
 	children,
+	...rest
 }) => {
 	const text = useMemo(() => {
 		const split = children.split("");
@@ -43,11 +46,13 @@ export const MenuItem: React.FC<MenuItemProps> = ({
 	}, [on]);
 
 	return isBtn ? (
-		<Button as="a" href={href ?? "#"}>
-			<Text as="span">{text}</Text>
-		</Button>
+		<Box>
+			<Button as="a" href={href ?? "#"} {...rest} ml="3">
+				<Text as="span">{text}</Text>
+			</Button>
+		</Box>
 	) : (
-		<Link href={href ?? "#"} variant="nav">
+		<Link href={href ?? "#"} variant="nav" {...rest}>
 			{text}
 		</Link>
 	);

@@ -1,9 +1,7 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { Box } from "@chakra-ui/react";
-import { List, ListItem } from "@chakra-ui/react";
-import { Text, Link } from "@chakra-ui/react";
+import { Box, List, ListItem, Text, Link } from "@chakra-ui/react";
 
 export type JobType = {
 	title: string;
@@ -41,7 +39,7 @@ export const Job: React.FC<JobProps> = ({
 			<Text variant="tech">
 				{date.from} – {date.to}
 			</Text>
-			<List spacing="2" mt="4">
+			<List spacing="2" mt="4" className="tech-list">
 				{items.map((item) => (
 					<ListItem key={uuidv4()}>{item}</ListItem>
 				))}

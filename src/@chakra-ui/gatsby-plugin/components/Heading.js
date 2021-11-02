@@ -15,7 +15,7 @@ export const Heading = {
 		}),
 		h3: (props) => ({
 			color: mode("app.light.dawn.100", "app.dark.dawn.100")(props),
-			fontSize: ["3l", "3xl", "4xl", "4xl", "5xl", "5xl"],
+			fontSize: ["3xl", "3xl", "4xl", "4xl", "5xl", "5xl"],
 		}),
 		h4: (props) => ({
 			color: mode("app.light.dawn.100", "app.dark.dawn.100")(props),

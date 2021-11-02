@@ -5,8 +5,9 @@ export const underlineLink = (props, wfull = false) => ({
 	display: "inline-block",
 	"&::after": {
 		content: "''",
-		position: "relative",
-		bottom: "0.05rem",
+		position: "absolute",
+		left: "0",
+		bottom: "-0.15rem",
 		display: "block",
 		width: wfull ? "100%" : "0",
 		height: "1px",

@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useMemo } from "react";
 
-import { Container } from "@chakra-ui/react";
-import { Grid, GridItem, List, ListItem } from "@chakra-ui/react";
-import { Heading, Text, Code } from "@chakra-ui/react";
+import {
+	Container,
+	Grid,
+	GridItem,
+	List,
+	ListItem,
+	Heading,
+	Text,
+	Code,
+} from "@chakra-ui/react";
 
 interface AboutProps {
 	mode: "dark" | "light";
@@ -10,6 +17,15 @@ interface AboutProps {
 
 export const About = React.forwardRef<HTMLDivElement, AboutProps>(
 	({ mode }, ref) => {
+		const monthDiff = useMemo(() => {
+			const birthday = new Date(1998, 7, 1);
+			const today = new Date();
+			const months = today.getMonth() - birthday.getMonth();
+			const years = today.getFullYear() - birthday.getFullYear();
+
+			return months + years * 12 + 1;
+		}, []);
+
 		return (
 			<Container
 				ref={ref}
@@ -36,8 +52,8 @@ export const About = React.forwardRef<HTMLDivElement, AboutProps>(
 					<GridItem colSpan={[12, 12, 12, 7, 7, 7]}>
 						<Text marginTop="4">
 							We might’ve gotten off on the wrong foot, so allow me to properly
-							introduce myself. Hi, my name is Uroš Nešić, I’m 279 months old
-							and I enjoy building things for the web!
+							introduce myself. Hi, my name is Uroš Nešić, I’m {monthDiff}{" "}
+							months old and I enjoy building things for the web!
 						</Text>
 						<Text marginTop="4">
 							Fueled by undoubtedly weird sense of humor and lots of coffee
@@ -60,13 +76,13 @@ export const About = React.forwardRef<HTMLDivElement, AboutProps>(
 							gap="2"
 							marginTop="5"
 						>
-							<List spacing="2">
+							<List spacing="2" className="tech-list">
 								<ListItem>JavaScript (ES6+)</ListItem>
 								<ListItem>TypeScript</ListItem>
 								<ListItem>React</ListItem>
 								<ListItem>Redux</ListItem>
 							</List>
-							<List spacing="2">
+							<List spacing="2" className="tech-list">
 								<ListItem>Node.js</ListItem>
 								<ListItem>express.js</ListItem>
 								<ListItem>GraphQL</ListItem>

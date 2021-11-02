@@ -4,6 +4,7 @@ import { underlineLink } from "./util/underlineLink";
 export const Link = {
 	baseStyle: {
 		textDecoration: "none !important",
+		borderRadius: "md",
 	},
 	variants: {
 		icon: (props) => ({
@@ -15,6 +16,10 @@ export const Link = {
 		}),
 		nav: (props) => ({
 			...underlineLink(props),
+			"&:after": {
+				bottom: "0.5rem",
+			},
+			position: "relative",
 			p: 2,
 			fontSize: "md",
 			fontFamily: "mono",
@@ -23,6 +28,11 @@ export const Link = {
 				color: mode("app.light.white", "app.dark.white")(props),
 			},
 		}),
-		external: (props) => underlineLink(props),
+		external: (props) => ({
+			...underlineLink(props),
+			"&:after": {
+				bottom: "0.15rem",
+			},
+		}),
 	},
 };

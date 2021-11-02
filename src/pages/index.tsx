@@ -1,8 +1,7 @@
 import React, { useMemo, useRef } from "react";
-import { Button, useColorMode } from "@chakra-ui/react";
+import { useColorMode } from "@chakra-ui/react";
 
 import { Header } from "components/Header";
-
 import { Hero } from "components/home/Hero";
 import { About } from "components/home/About";
 import { Experience } from "components/home/Experience";
@@ -20,15 +19,23 @@ const IndexPage: React.FC = () => {
 	const projectsRef = useRef() as DivRef;
 	const contactRef = useRef() as DivRef;
 
-	const sections = useMemo(
+	const menuItems = useMemo(
 		() => [
+			{
+				id: "header",
+				nav: {
+					num: 0,
+					char: "H",
+				},
+				ref: headerRef,
+			},
 			{
 				id: "hero",
 				nav: {
 					num: 0,
 					char: "H",
 				},
-				ref: headerRef,
+				ref: heroRef,
 			},
 			{
 				id: "about",
@@ -66,19 +73,28 @@ const IndexPage: React.FC = () => {
 				},
 				ref: contactRef,
 			},
+			{
+				id: "resume",
+				label: "Resume",
+				nav: {
+					num: 3,
+					char: "U",
+				},
+				isBtn: true,
+				url: "#",
+			},
 		],
 		[]
 	);
 
 	return (
 		<main>
-			<Button
-				position="fixed"
-				inset={["1", "2", "3", "4", "5", "6"]}
-				onClick={toggleColorMode}
-			></Button>
-
-			<Header mode={colorMode} ref={headerRef} sections={sections} />
+			<Header
+				mode={colorMode}
+				toggleMode={toggleColorMode}
+				ref={headerRef}
+				menuItems={menuItems}
+			/>
 			<Hero mode={colorMode} ref={heroRef} headerRef={headerRef} />
 			<About mode={colorMode} ref={aboutRef} />
 			<Experience mode={colorMode} ref={experienceRef} />
