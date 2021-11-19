@@ -1,5 +1,5 @@
 import React, { useMemo, useRef } from "react";
-import { useColorMode } from "@chakra-ui/react";
+import { LanguageProvider } from "lib/LanguageContext";
 
 import { Header } from "components/Header";
 import { Hero } from "components/home/Hero";
@@ -11,95 +11,35 @@ import { Contact } from "components/home/Contact";
 export type DivRef = React.MutableRefObject<HTMLDivElement>;
 
 const IndexPage: React.FC = () => {
-	const { colorMode, toggleColorMode } = useColorMode();
-	const headerRef = useRef() as DivRef;
-	const heroRef = useRef() as DivRef;
-	const aboutRef = useRef() as DivRef;
-	const experienceRef = useRef() as DivRef;
-	const projectsRef = useRef() as DivRef;
-	const contactRef = useRef() as DivRef;
+	const header = useRef() as DivRef;
+	const hero = useRef() as DivRef;
+	const about = useRef() as DivRef;
+	const experience = useRef() as DivRef;
+	const projects = useRef() as DivRef;
+	const contact = useRef() as DivRef;
 
-	const menuItems = useMemo(
-		() => [
-			{
-				id: "header",
-				nav: {
-					num: 0,
-					char: "H",
-				},
-				ref: headerRef,
-			},
-			{
-				id: "hero",
-				nav: {
-					num: 0,
-					char: "H",
-				},
-				ref: heroRef,
-			},
-			{
-				id: "about",
-				label: "About",
-				nav: {
-					num: 1,
-					char: "B",
-				},
-				ref: aboutRef,
-			},
-			{
-				id: "experience",
-				label: "Experience",
-				nav: {
-					num: 3,
-					char: "E",
-				},
-				ref: experienceRef,
-			},
-			{
-				id: "projects",
-				label: "Projects",
-				nav: {
-					num: 3,
-					char: "J",
-				},
-				ref: projectsRef,
-			},
-			{
-				id: "contact",
-				label: "Contact",
-				nav: {
-					num: 1,
-					char: "O",
-				},
-				ref: contactRef,
-			},
-			{
-				id: "resume",
-				label: "Resume",
-				nav: {
-					num: 3,
-					char: "U",
-				},
-				isBtn: true,
-				url: "#",
-			},
-		],
+	const refs = useMemo(
+		() => ({
+			header: header,
+			hero: hero,
+			about: about,
+			experience: experience,
+			projects: projects,
+			contact: contact,
+		}),
 		[]
 	);
 
 	return (
 		<main>
-			<Header
-				mode={colorMode}
-				toggleMode={toggleColorMode}
-				ref={headerRef}
-				menuItems={menuItems}
-			/>
-			<Hero mode={colorMode} ref={heroRef} headerRef={headerRef} />
-			<About mode={colorMode} ref={aboutRef} />
-			<Experience mode={colorMode} ref={experienceRef} />
-			<Projects mode={colorMode} ref={projectsRef} />
-			<Contact mode={colorMode} ref={contactRef} />
+			<LanguageProvider>
+				<Header ref={header} refs={refs} />
+				<Hero ref={hero} headerRef={header} aboutRef={about} />
+				<About ref={about} />
+				<Experience ref={experience} />
+				<Projects ref={projects} />
+				<Contact ref={contact} />
+			</LanguageProvider>
 		</main>
 	);
 };

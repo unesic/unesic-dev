@@ -1,0 +1,235 @@
+{
+	"language": "Srpski",
+	"header": {
+		"nav": [
+			{
+				"id": "header",
+				"nav": {
+					"num": 0,
+					"char": "H"
+				}
+			},
+			{
+				"id": "hero",
+				"nav": {
+					"num": 0,
+					"char": "H"
+				}
+			},
+			{
+				"id": "about",
+				"label": "O meni",
+				"nav": {
+					"num": 3,
+					"char": "E"
+				}
+			},
+			{
+				"id": "experience",
+				"label": "Iskustvo",
+				"nav": {
+					"num": 2,
+					"char": "K"
+				}
+			},
+			{
+				"id": "projects",
+				"label": "Projekti",
+				"nav": {
+					"num": 3,
+					"char": "J"
+				}
+			},
+			{
+				"id": "contact",
+				"label": "Kontakt",
+				"nav": {
+					"num": 1,
+					"char": "O"
+				}
+			}
+		],
+		"resume": {
+			"head": "Preuzmi moj CV",
+			"copy": [
+				"Napravio sam svaku moguću varijatnu svog CV-a koju možeš da zamisliš (čitaj 'bilo mu dosadno'). Preuzmi jednu ili ceo paket!"
+			],
+			"variants": [
+				{
+					"head": "ENGLESKI",
+					"dark": {
+						"text": "Uros Nesic Resume – Dark",
+						"url": "/Uros-Nesic-Resume-en-dark.pdf"
+					},
+					"light": {
+						"text": "Uros Nesic Resume – Light",
+						"url": "/Uros-Nesic-Resume-en-light.pdf"
+					}
+				},
+				{
+					"head": "SRPSKI",
+					"dark": {
+						"text": "Uros Nesic Resume – Dark",
+						"url": "/Uros-Nesic-Resume-sr-dark.pdf"
+					},
+					"light": {
+						"text": "Uros Nesic Resume – Light",
+						"url": "/Uros-Nesic-Resume-sr-light.pdf"
+					}
+				}
+			],
+			"buttons": {
+				"cta": "Rezime",
+				"default": "Bilo koji",
+				"pack": "Ceo paket"
+			}
+		}
+	},
+	"hero": {
+		"intro": "Ćao, ja sam",
+		"head": "Uroš Nešić.",
+		"subhead": "I make web go brrr.",
+		"copy": [
+			"Developer orijentisan ka full-stack developmentu sa primarnim fokusom na front-end tehnologije."
+		],
+		"cta": "Upoznaj me bolje!"
+	},
+	"about": {
+		"intro": "Ko je bre ovaj?",
+		"head": "O meni.",
+		"copy": [
+			"Možda nismo baš najbolje počeli, tako da, dozvoli mi da se predstavim kako red nalaže. Ćao, zovem se Uroš Nešić, imam %months% meseci i uživam da pravim stvarčice za web!",
+			"Uz nesumnjivo uvrnutim smislom za humor i jakom domaćom kafom (uglavnom ovim drugim, bez šećera razume se), provodim veći deo svog dana u potrazi za interesantnim idejama za projekte i načinima da ostavim svoj trag na eteričnom entitetu zvanom Internet.",
+			"Nekoliko tehnologija sa kojima sam radio u poslednje vreme:"
+		],
+		"tech": [
+			[
+				"JavaScript (ES6+)",
+				"TypeScript",
+				"React",
+				"Redux"
+			],
+			[
+				"Node.js",
+				"express.js",
+				"GraphQL",
+				"Mongoose"
+			]
+		]
+	},
+	"experience": {
+		"intro": "Je l' ima uopšte iskustva?",
+		"head": "Gde sam radio.",
+		"jobs": [
+			{
+				"title": "WordPress Developer",
+				"date": {
+					"from": "Februar 2020",
+					"to": "Još uvek"
+				},
+				"company": {
+					"name": "BlueGrid",
+					"url": "https://bluegrid.io/"
+				},
+				"items": [
+					"Razvijanje custom teme, template-ova i custom post type-ova za visoko-posećeni sajt",
+					"Konvertovanje Figma dizajna u responzivne, funkcionalne i interaktivne web stranice",
+					"SEO i optimizacija brzine sajta uz pomoć keširanja i raznih lazy-loading tehnika",
+					"Implementiranje custom rešenja sa React-om, TypeScript-om i 3rd party API-ovima",
+					"Pisanje čistog, lakog za održavanje i skalabilnog JavaScript, CSS i php koda"
+				]
+			},
+			{
+				"title": "WordPress Developer",
+				"date": {
+					"from": "Septembar 2018",
+					"to": "Januar 2020"
+				},
+				"company": {
+					"name": "Ivapix",
+					"url": "https://ivapix.rs/"
+				},
+				"items": [
+					"Dizajn, razvijanje i podizanje  estetski lepih i modernih sajtova za klijente",
+					"SEO, optimizacija brzine i održavanje sajtova kao i hostinga kroz cPanel",
+					"Praćenje analitike i SEO učinka kroz Google Analytics i Search Console"
+				]
+			}
+		]
+	},
+	"projects": {
+		"intro": "Dobro, ima li šta da mi pokaže?",
+		"head": "Moje najnovije kreacije.",
+		"projects": [
+			{
+				"head": "Full-stack projekat",
+				"title": "Boleskine",
+				"desc": "Aplikacija za hvatanje beleški i praćenje finansija sa dostupnim pregledom nedeljnog i mesečnog preseka stanja uz grafikon koji pruža detaljniji uvid. Prijavljivanje putem jednostane email/šifra kombinacije ili putem društvenih mreža.",
+				"stack": [
+					[
+						"React",
+						"TypeScript",
+						"Redux",
+						"Router",
+						"Formik",
+						"TailwindCSS"
+					],
+					[
+						"Express",
+						"Apollo",
+						"Passport",
+						"GraphQL",
+						"MongoDB",
+						"Heroku"
+					]
+				],
+				"links": [
+					{
+						"type": "github",
+						"link": "#"
+					},
+					{
+						"type": "external-link",
+						"link": "#"
+					}
+				]
+			},
+			{
+				"head": "Full-stack projekat",
+				"title": "Trello Clone",
+				"desc": "Klon popularne kanban aplikacije za praćenje projekta, Trello. Korisnik može kreirati, pregledati, urediti, pin-ovati i personalizovati tabele. Svaka tabela sastoji se iz listi koji se mogu preurediti, tagova, to-do listi, komentara i još mnogo toga.",
+				"stack": [
+					[
+						"React",
+						"Router",
+						"Styled Components",
+						"Socket.io"
+					],
+					[
+						"Feathers",
+						"MongoDB",
+						"Heroku"
+					]
+				],
+				"links": [
+					{
+						"type": "github",
+						"link": "#"
+					},
+					{
+						"type": "external-link",
+						"link": "#"
+					}
+				]
+			}
+		]
+	},
+	"contact": {
+		"intro": "A nije toliko loš...",
+		"head": "Kontaktiraj me.",
+		"copy": [
+			"Imaš pitanje, hoćeš da me angažuješ ili imaš ideju za projekat koji će nam doneti milione i biti nov 'billion dollar unicorn' koji će nas odvesti do meseca?! Javi se i potrudiću se da odgovorim u što kraćem roku!"
+		],
+		"cta": "Poašalji email"
+	}
+}

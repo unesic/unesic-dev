@@ -29,5 +29,11 @@ export const Heading = {
 			color: mode("app.light.dawn.100", "app.dark.dawn.100")(props),
 			fontSize: ["lg", "lg", "xl", "xl", "2xl", "2xl"],
 		}),
+		h7: (props) => ({
+			mb: 1,
+			opacity: "0.75",
+			fontSize: "sm",
+			color: mode("app.light.dawn.200", "app.dark.dawn.200")(props),
+		}),
 	},
 };

@@ -1,10 +1,15 @@
 /**
  * React
  */
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 /**
- * Chakra UI components
+ * Utilities
+ */
+import { useTranslation } from "lib/hooks/useTranslation";
+
+/**
+ * Chakra UI
  */
 import {
 	Container,
@@ -15,6 +20,7 @@ import {
 	Code,
 	Button,
 	Image,
+	useColorMode,
 } from "@chakra-ui/react";
 
 /**
@@ -24,19 +30,30 @@ import fullDark from "../../images/illo-full-dark.svg";
 import fullLight from "../../images/illo-full-light.svg";
 
 interface HeroProps {
-	mode: "dark" | "light";
 	headerRef: React.MutableRefObject<HTMLDivElement>;
+	aboutRef: React.MutableRefObject<HTMLDivElement>;
 }
 
 export const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
-	({ mode, headerRef }, ref) => {
+	({ headerRef, aboutRef }, ref) => {
 		const [maxH, setMaxH] = useState<number>();
+
+		const { colorMode } = useColorMode();
+		const _t = useTranslation("hero");
 
 		useEffect(() => {
 			const headerH = headerRef.current?.getBoundingClientRect().height;
 			const newMaxH = window.innerHeight - headerH;
 			setMaxH(newMaxH);
 		}, [headerRef]);
+
+		const scrollToAbout = useCallback((e: React.MouseEvent<any>) => {
+			e.preventDefault();
+			aboutRef.current.scrollIntoView({
+				block: "start",
+				behavior: "smooth",
+			});
+		}, []);
 
 		return (
 			<Container
@@ -68,26 +85,28 @@ export const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
 						colSpan={[12, 12, 12, 6, 6, 6]}
 						textAlign={["center", "center", "center", "left", "left", "left"]}
 					>
-						<Code>Hi, my name is</Code>
+						<Code>{_t.intro}</Code>
 						<Heading variant="h1" as="h1">
-							Uroš Nešić.
+							{_t.head}
 						</Heading>
 						<Heading variant="h2" as="h2">
-							I make web go brrr.
+							{_t.subhead}
 						</Heading>
 						<Text
 							mt="4"
 							mx={["auto", "auto", "auto", "0", "0", "0"]}
 							maxW={["22rem", "22rem", "22rem", "24rem", "100%", "100%"]}
 						>
-							A software engineer specializing in full-stack web development
-							with primary focus on the front-end technologies.
+							{_t.copy[0]}
 						</Text>
-						<Button mt="12">Get to know me!</Button>
+						<Button mt="12" onClick={scrollToAbout}>
+							{_t.cta}
+						</Button>
 					</GridItem>
+
 					<GridItem colSpan={[12, 12, 12, 4, 4, 4]}>
 						<Image
-							src={mode == "dark" ? fullDark : fullLight}
+							src={colorMode == "dark" ? fullDark : fullLight}
 							alt="Character using laptop"
 							ml="auto"
 							mr={["auto", "auto", "auto", "0", "0", "0"]}

@@ -1,31 +1,35 @@
+/**
+ * Base
+ */
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
 
+/**
+ * Utilities
+ */
+import { v4 as uuidv4 } from "uuid";
+import { useTranslation } from "lib/hooks/useTranslation";
+
+/**
+ * Components and Chakra UI
+ */
+import { Project } from "components/partials/Project";
 import { Container, Heading, Code } from "@chakra-ui/react";
 
-import projects from "data/projects.json";
-import { Project, ProjectType } from "./Project";
-
-interface ProjectsProps {
-	mode: "dark" | "light";
-}
+interface ProjectsProps {}
 
 export const Projects = React.forwardRef<HTMLDivElement, ProjectsProps>(
-	({ mode }, ref) => {
+	({}, ref) => {
+		const _t = useTranslation("projects");
+
 		return (
 			<Container id="projects" maxW="container.xl" py="32" ref={ref}>
-				<Code>Has he got anything to show?</Code>
+				<Code>{_t.intro}</Code>
 				<Heading variant="h3" as="h3">
-					My latest creations.
+					{_t.head}
 				</Heading>
 
-				{(projects as ProjectType[]).map((project, idx) => (
-					<Project
-						key={uuidv4()}
-						mode={mode}
-						dir={idx % 2 ? "ltr" : "rtl"}
-						project={project}
-					/>
+				{_t.projects.map((project, idx) => (
+					<Project key={uuidv4()} dir={idx % 2 ? "ltr" : "rtl"} {...project} />
 				))}
 			</Container>
 		);

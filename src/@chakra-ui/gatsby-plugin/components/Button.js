@@ -15,15 +15,6 @@ export const Button = {
 				bg: mode("app.light.accent.clear", "app.dark.accent.clear")(props),
 			},
 		}),
-		colorMode: (props) => ({
-			borderRadius: "9999px",
-			p: 1,
-			width: 16,
-			height: "auto",
-			bg: mode("app.light.dusk.200", "app.dark.dusk.200")(props),
-			fontSize: "xl",
-			justifyContent: "start",
-		}),
 	},
 	defaultProps: {
 		variant: "app",

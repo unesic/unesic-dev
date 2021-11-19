@@ -1,6 +1,16 @@
+/**
+ * Base
+ */
 import React, { useMemo } from "react";
+
+/**
+ * Utilities
+ */
 import { v4 as uuidv4 } from "uuid";
 
+/**
+ * Chakra UI
+ */
 import { Box, Text, Button, Link } from "@chakra-ui/react";
 
 interface MenuItemProps {
@@ -10,7 +20,7 @@ interface MenuItemProps {
 	isBtn?: boolean;
 	children: string;
 	target: string;
-	onClick: (e: any) => void;
+	onClick?: (e: any) => void;
 }
 
 export const MenuItem: React.FC<MenuItemProps> = ({
@@ -43,7 +53,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
 		);
 
 		return [head, highlight, tail];
-	}, [on]);
+	}, [on, children]);
 
 	return isBtn ? (
 		<Box>

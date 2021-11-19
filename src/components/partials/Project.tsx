@@ -1,6 +1,17 @@
+/**
+ * Base
+ */
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
 
+/**
+ * Utilities and types
+ */
+import { v4 as uuidv4 } from "uuid";
+import { Project as IProject } from "lib/types/language.types";
+
+/**
+ * Chakra UI
+ */
 import {
 	Grid,
 	GridItem,
@@ -10,29 +21,24 @@ import {
 	Heading,
 	Text,
 	Link,
+	useColorMode,
 } from "@chakra-ui/react";
-
 import { Icon } from "@iconify/react";
 
-export type ProjectType = {
-	head: string;
-	title: string;
-	desc: string;
-	stack: string[][];
-	links: { type: "github" | "external-link"; link: string }[];
-};
-
-interface ProjectProps {
-	mode: "dark" | "light";
+interface ProjectProps extends IProject {
 	dir: "ltr" | "rtl";
-	project: ProjectType;
 }
 
 export const Project: React.FC<ProjectProps> = ({
-	mode,
 	dir,
-	project: { head, title, desc, stack, links },
+	head,
+	title,
+	desc,
+	stack,
+	links,
 }) => {
+	const { colorMode } = useColorMode();
+
 	return (
 		<Grid templateColumns="repeat(12, 1fr)" mt="16">
 			<GridItem
@@ -43,7 +49,7 @@ export const Project: React.FC<ProjectProps> = ({
 				}
 				gridRow={["1 / 2", "1 / 2", "1 / 2", "1 / -1", "1 / -1", "1 / -1"]}
 				minH={["20rem", "20rem", "20rem", "100%", "100%", "100%"]}
-				bg={`app.${mode}.dusk.100`}
+				bg={`app.${colorMode}.dusk.100`}
 				opacity="0.2"
 				borderRadius="8"
 			></GridItem>
@@ -62,13 +68,13 @@ export const Project: React.FC<ProjectProps> = ({
 				zIndex="1"
 				position="relative"
 			>
-				<Text variant="tech" color={`app.${mode}.accent.solid`}>
+				<Text variant="tech" color={`app.${colorMode}.accent.solid`}>
 					{head}
 				</Text>
 				<Heading variant="h4" as="h4">
 					{title}
 				</Heading>
-				<Box p="4" bg={`app.${mode}.dusk.200`} borderRadius="8" mt="8">
+				<Box p="4" bg={`app.${colorMode}.dusk.200`} borderRadius="8" mt="8">
 					<Text>{desc}</Text>
 				</Box>
 				<VStack

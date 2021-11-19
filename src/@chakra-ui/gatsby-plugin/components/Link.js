@@ -34,5 +34,15 @@ export const Link = {
 				bottom: "0.15rem",
 			},
 		}),
+		"simple-link": (props) => ({
+			py: 1,
+			display: "flex",
+			alignItems: "center",
+			fontSize: "md",
+			color: mode("app.light.accent.solid", "app.dark.accent.solid")(props),
+			"&:hover": {
+				textDecoration: "underline !important",
+			},
+		}),
 	},
 };
