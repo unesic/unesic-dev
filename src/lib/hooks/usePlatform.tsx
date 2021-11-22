@@ -9,8 +9,9 @@ export const usePlatform = () => {
 	const [platform, setPlatform] = useState<Platform>();
 
 	useEffect(() => {
-		const userAgent = window.navigator.userAgent;
+		if (typeof window === "undefined") return;
 
+		const userAgent = window.navigator.userAgent;
 		const isWin = userAgent.includes("Windows");
 		const isMac = userAgent.includes("Mac");
 

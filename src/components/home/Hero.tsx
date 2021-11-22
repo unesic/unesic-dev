@@ -42,6 +42,8 @@ export const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
 		const _t = useTranslation("hero");
 
 		useEffect(() => {
+			if (typeof window === "undefined") return;
+
 			const headerH = headerRef.current?.getBoundingClientRect().height;
 			const newMaxH = window.innerHeight - headerH;
 			setMaxH(newMaxH);
