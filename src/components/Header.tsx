@@ -39,9 +39,9 @@ import {
 	Tooltip,
 	Link,
 	useBoolean,
-	useMediaQuery,
 	useColorMode,
 	useColorModeValue,
+	useBreakpointValue,
 } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
 
@@ -69,7 +69,7 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 		const [secondKey, setSecondKey] = useState<string>();
 		const menuRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 
-		const [isDesktop] = useMediaQuery("(min-width: 62em)");
+		const isDesktop = useBreakpointValue({ lg: true });
 		const [mobileMenu, setMobileMenu] = useBoolean();
 		const [navKey, setNavKey] = useBoolean();
 
@@ -160,7 +160,14 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 
 		return (
 			<Container
-				maxW="container.xl"
+				maxW={[
+					"100%",
+					"container.sm",
+					"container.md",
+					"container.lg",
+					"container.xl",
+					"container.xl",
+				]}
 				ref={ref}
 				position={isDesktop ? "relative" : "fixed"}
 				top={isDesktop ? "unset" : "0"}

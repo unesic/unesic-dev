@@ -32,7 +32,7 @@ const IndexPage: React.FC = () => {
 	);
 
 	return (
-		<main>
+		<main style={{ overflowX: "hidden" }}>
 			<LanguageProvider>
 				<Header ref={header} refs={refs} />
 				<Hero ref={hero} headerRef={header} aboutRef={about} />

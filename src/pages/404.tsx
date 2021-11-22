@@ -15,7 +15,7 @@ const NotFoundPage: React.FC = () => {
 	const header = useRef() as React.MutableRefObject<HTMLDivElement>;
 
 	return (
-		<main>
+		<main style={{ overflowX: "hidden" }}>
 			<LanguageProvider>
 				<Header ref={header} />
 				<Container

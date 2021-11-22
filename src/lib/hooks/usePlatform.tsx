@@ -18,7 +18,7 @@ export const usePlatform = () => {
 		if (isMac) setPlatform(Platform.MAC);
 		else if (isWin) setPlatform(Platform.WIN);
 		else setPlatform(Platform.WIN);
-	}, [window.navigator.userAgent]);
+	}, []);
 
 	return [platform, setPlatform];
 };

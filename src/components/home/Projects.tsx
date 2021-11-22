@@ -22,7 +22,19 @@ export const Projects = React.forwardRef<HTMLDivElement, ProjectsProps>(
 		const _t = useTranslation("projects");
 
 		return (
-			<Container id="projects" maxW="container.xl" py="32" ref={ref}>
+			<Container
+				id="projects"
+				maxW={[
+					"100%",
+					"container.sm",
+					"container.md",
+					"container.lg",
+					"container.xl",
+					"container.xl",
+				]}
+				py="32"
+				ref={ref}
+			>
 				<Code>{_t.intro}</Code>
 				<Heading variant="h3" as="h3">
 					{_t.head}
