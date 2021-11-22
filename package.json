@@ -8,9 +8,9 @@
 		"gatsby"
 	],
 	"scripts": {
-		"start": "gatsby develop",
+		"start": "gatsby serve",
+		"dev": "gatsby develop",
 		"build": "gatsby build",
-		"serve": "gatsby serve",
 		"clean": "gatsby clean"
 	},
 	"dependencies": {
