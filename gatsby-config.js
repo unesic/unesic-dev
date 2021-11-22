@@ -15,12 +15,6 @@ module.exports = {
 			},
 		},
 		"gatsby-plugin-image",
-		{
-			resolve: "gatsby-plugin-google-analytics",
-			options: {
-				trackingId: "TODO: CHANGE THIS",
-			},
-		},
 		"gatsby-plugin-react-helmet",
 		"gatsby-plugin-sitemap",
 		{

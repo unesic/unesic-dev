@@ -53,7 +53,7 @@ import head_light from "../images/illo-head-light.svg";
 import { Switch } from "./Switch";
 import { LanguageContext, Language } from "lib/LanguageContext";
 interface HeaderProps {
-	refs: { [section: string]: DivRef };
+	refs?: { [section: string]: DivRef };
 }
 
 export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
@@ -111,7 +111,7 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 			const section = _t.nav.find((s) => s.nav.char === secondKey);
 			if (!section?.id) return;
 
-			refs[section.id].current.scrollIntoView({
+			refs?.[section.id].current.scrollIntoView({
 				block: "start",
 				behavior: "smooth",
 			});
@@ -146,7 +146,7 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 
 		const handleMenuItemClick = useCallback(
 			(e: React.MouseEvent<any>, s?: NavItem) => {
-				if (s?.id) {
+				if (refs && s?.id) {
 					e.preventDefault();
 					refs[s.id].current.scrollIntoView({
 						block: "start",
@@ -244,7 +244,7 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 											char={s.nav.num}
 											on={navKey}
 											isBtn={s.isBtn}
-											href={s.url ?? `#${s.id}`}
+											href={s.url ?? `/#${s.id}`}
 											target={s.url ? "_blank" : ""}
 											onClick={(e) => handleMenuItemClick(e, s)}
 										>
