@@ -78,6 +78,10 @@ export interface Project {
 		type: string;
 		link: string;
 	}[];
+	images: {
+		light: string;
+		dark: string;
+	};
 }
 
 export interface Projects {

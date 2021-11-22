@@ -1,6 +1,14 @@
 import { mode } from "@chakra-ui/theme-tools";
 
 export const Heading = {
+	baseStyle: (props) => ({
+		"& > a": {
+			transition: "color 0.2s ease-in-out 0s",
+			"&:hover": {
+				color: mode("app.light.accent.solid", "app.dark.accent.solid")(props),
+			},
+		},
+	}),
 	variants: {
 		h1: (props) => ({
 			color: mode("app.light.dawn.100", "app.dark.dawn.100")(props),

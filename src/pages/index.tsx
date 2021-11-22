@@ -7,6 +7,7 @@ import { About } from "components/home/About";
 import { Experience } from "components/home/Experience";
 import { Projects } from "components/home/Projects";
 import { Contact } from "components/home/Contact";
+import { Ribbon } from "components/Ribbon";
 
 export type DivRef = React.MutableRefObject<HTMLDivElement>;
 
@@ -39,6 +40,8 @@ const IndexPage: React.FC = () => {
 				<Experience ref={experience} />
 				<Projects ref={projects} />
 				<Contact ref={contact} />
+
+				<Ribbon />
 			</LanguageProvider>
 		</main>
 	);

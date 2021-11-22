@@ -22,6 +22,7 @@ import {
 	Text,
 	Link,
 	useColorMode,
+	Image,
 } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
 
@@ -36,11 +37,16 @@ export const Project: React.FC<ProjectProps> = ({
 	desc,
 	stack,
 	links,
+	images,
 }) => {
 	const { colorMode } = useColorMode();
 
 	return (
-		<Grid templateColumns="repeat(12, 1fr)" mt="16">
+		<Grid
+			templateColumns="repeat(12, 1fr)"
+			mt="16"
+			columnGap={["0", "0", "0", "12"]}
+		>
 			<GridItem
 				gridColumn={
 					dir === "ltr"
@@ -48,11 +54,18 @@ export const Project: React.FC<ProjectProps> = ({
 						: ["1 / full", "2 / 12", "2 / 12", "1 / 7", "1 / 7", "1 / 7"]
 				}
 				gridRow={["1 / 2", "1 / 2", "1 / 2", "1 / -1", "1 / -1", "1 / -1"]}
-				minH={["20rem", "20rem", "20rem", "100%", "100%", "100%"]}
-				bg={`app.${colorMode}.dusk.100`}
-				opacity="0.2"
 				borderRadius="8"
-			></GridItem>
+			>
+				<Link isExternal href={links[1].link}>
+					<Image
+						src={images[colorMode]}
+						opacity="0.6"
+						_hover={{ opacity: 1 }}
+						transition="opacity 0.2s ease-in-out 0s"
+					/>
+				</Link>
+			</GridItem>
+
 			<GridItem
 				gridColumn={
 					dir === "ltr"
@@ -72,7 +85,9 @@ export const Project: React.FC<ProjectProps> = ({
 					{head}
 				</Text>
 				<Heading variant="h4" as="h4">
-					{title}
+					<Link isExternal href={links[1].link}>
+						{title}
+					</Link>
 				</Heading>
 				<Box p="4" bg={`app.${colorMode}.dusk.200`} borderRadius="8" mt="8">
 					<Text>{desc}</Text>

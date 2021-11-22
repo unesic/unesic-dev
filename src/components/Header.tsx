@@ -14,6 +14,7 @@ import React, {
  * Utilities and types
  */
 import { useTranslation } from "lib/hooks/useTranslation";
+import { usePlatform, Platform } from "lib/hooks/usePlatform";
 import { DivRef } from "pages";
 import { NavItem } from "lib/types/language.types";
 
@@ -51,12 +52,6 @@ import head_dark from "../images/illo-head-dark.svg";
 import head_light from "../images/illo-head-light.svg";
 import { Switch } from "./Switch";
 import { LanguageContext, Language } from "lib/LanguageContext";
-
-enum Platform {
-	MAC = "MAC",
-	WIN = "WIN",
-}
-
 interface HeaderProps {
 	refs: { [section: string]: DivRef };
 }
@@ -68,6 +63,7 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 		const headerImage = useColorModeValue(head_light, head_dark);
 
 		const _t = useTranslation("header");
+		const [platform] = usePlatform();
 
 		const { language, toggleLanguage } = useContext(LanguageContext);
 		const [secondKey, setSecondKey] = useState<string>();
@@ -76,18 +72,6 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 		const [isDesktop] = useMediaQuery("(min-width: 62em)");
 		const [mobileMenu, setMobileMenu] = useBoolean();
 		const [navKey, setNavKey] = useBoolean();
-
-		const platform: Platform = useMemo(() => {
-			const userAgent = window.navigator.userAgent;
-
-			const isWin = userAgent.includes("Windows");
-			const isMac = userAgent.includes("Mac");
-
-			if (isWin) return Platform.WIN;
-			if (isMac) return Platform.MAC;
-
-			return Platform.WIN;
-		}, [window.navigator.userAgent]);
 
 		const menuStyles = useMemo(
 			() =>
@@ -199,22 +183,27 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 							/>
 						</Link>
 					</Box>
-					<Box ml={["4", "4", "4", "8"]}>
-						<Switch
-							active={colorMode === "light"}
-							icon={<Icon icon={modeIcon} />}
-							onToggle={toggleColorMode}
-						/>
-					</Box>
 
-					<Box mr="auto" ml={["4", "4", "4", "4"]}>
-						<Switch
-							active={language === Language.SR}
-							icon={language.toUpperCase()}
-							onToggle={toggleLanguage}
-							fontSize="sm"
-						/>
-					</Box>
+					{isDesktop && (
+						<Box ml={["4", "4", "4", "8"]}>
+							<Switch
+								active={colorMode === "light"}
+								icon={<Icon icon={modeIcon} />}
+								onToggle={toggleColorMode}
+							/>
+						</Box>
+					)}
+
+					{isDesktop && (
+						<Box mr="auto" ml={["4", "4", "4", "4"]}>
+							<Switch
+								active={language === Language.SR}
+								icon={language.toUpperCase()}
+								onToggle={toggleLanguage}
+								fontSize="sm"
+							/>
+						</Box>
+					)}
 					<Box>
 						<HStack spacing={4} alignItems="center" justify="end">
 							{isDesktop ? (
@@ -262,6 +251,27 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 											{s.label}
 										</MenuItem>
 									) : null
+								)}
+
+								{!isDesktop && (
+									<Box ml={["4", "4", "4", "8"]}>
+										<Switch
+											active={colorMode === "light"}
+											icon={<Icon icon={modeIcon} />}
+											onToggle={toggleColorMode}
+										/>
+									</Box>
+								)}
+
+								{!isDesktop && (
+									<Box mr="auto" ml={["4", "4", "4", "4"]}>
+										<Switch
+											active={language === Language.SR}
+											icon={language.toUpperCase()}
+											onToggle={toggleLanguage}
+											fontSize="sm"
+										/>
+									</Box>
 								)}
 							</Stack>
 							{isDesktop && <ResumePopup />}

@@ -67,7 +67,7 @@ export const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
 					"container.xl",
 					"container.xl",
 				]}
-				pt="40"
+				pt={["48", "48", "48", "60", "48", "48", "62"]}
 			>
 				<Grid
 					templateColumns="repeat(12, 1fr)"
@@ -80,9 +80,11 @@ export const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
 						`${maxH}px`,
 					]}
 					h={["auto", "auto", "auto", "100vh", "100vh", "100vh"]}
+					rowGap="16"
 				>
 					<GridItem
 						colSpan={[12, 12, 12, 6, 6, 6]}
+						colStart={[1, 1, 1, 2, 2, 2]}
 						textAlign={["center", "center", "center", "left", "left", "left"]}
 					>
 						<Code>{_t.intro}</Code>

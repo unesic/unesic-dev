@@ -186,13 +186,17 @@
 				"links": [
 					{
 						"type": "github",
-						"link": "#"
+						"link": "https://github.com/unesic/boleskine"
 					},
 					{
 						"type": "external-link",
-						"link": "#"
+						"link": "https://boleskine.unesic.io/"
 					}
-				]
+				],
+				"images": {
+					"light": "/boleskine-home-light.png",
+					"dark": "/boleskine-home-dark.png"
+				}
 			},
 			{
 				"head": "Full-stack projekat",
@@ -214,13 +218,17 @@
 				"links": [
 					{
 						"type": "github",
-						"link": "#"
+						"link": "https://github.com/unesic/trello-clone"
 					},
 					{
 						"type": "external-link",
-						"link": "#"
+						"link": "https://trello.unesic.io/"
 					}
-				]
+				],
+				"images": {
+					"light": "/trello-home-light.png",
+					"dark": "/trello-home-dark.png"
+				}
 			}
 		]
 	},
