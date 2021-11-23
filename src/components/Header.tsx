@@ -233,7 +233,11 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 							) : (
 								<>
 									<ResumePopup />
-									<Button onClick={setMobileMenu.toggle}>
+									<Button
+										onClick={setMobileMenu.toggle}
+										aria-label="Mobile menu button"
+										aria-expanded={mobileMenu}
+									>
 										<Icon icon="feather:menu" />
 									</Button>
 								</>

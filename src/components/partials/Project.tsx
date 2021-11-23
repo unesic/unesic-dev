@@ -62,6 +62,7 @@ export const Project: React.FC<ProjectProps> = ({
 						opacity="0.6"
 						_hover={{ opacity: 1 }}
 						transition="opacity 0.2s ease-in-out 0s"
+						alt={`${title} screenshot`}
 					/>
 				</Link>
 			</GridItem>
@@ -126,7 +127,17 @@ export const Project: React.FC<ProjectProps> = ({
 					mt="8"
 				>
 					{links.map(({ type, link }) => (
-						<Link key={uuidv4()} variant="icon" href={link} isExternal>
+						<Link
+							key={uuidv4()}
+							variant="icon"
+							href={link}
+							isExternal
+							aria-label={
+								type === "github"
+									? `View ${title} source code`
+									: `Visit ${title}`
+							}
+						>
 							<Icon icon={`feather:${type}`} />
 						</Link>
 					))}

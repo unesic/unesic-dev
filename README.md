@@ -1,54 +1,33 @@
+<h1 align="center"><a href="https://unesic.io" target="_blank">unesic.io</a></h1>
+<p align="center">Uroš Nešić's Personal website</p>
+
 <p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
+	<a href="https://app.netlify.com/sites/unesic-io/deploys" target="_blank" title="Netlify Status">
+		<img src="https://api.netlify.com/api/v1/badges/e5c52766-a264-438b-9034-359fa5cd8b39/deploy-status" alt="Netlify Status" />
+	</a>
+	<a href="https://github.com/unesic/unesic-io/blob/master/CODE_OF_CONDUCT.md" target="_blank" title="Contributor Covenant">
+		<img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="Contributor Covenant" />
+	</a>
+	<a href="https://github.com/unesic/unesic-io/blob/master/LICENSE" target="_blank" title="LICENSE">
+		<img src="https://img.shields.io/badge/license-MIT-green" alt="LICENSE" />
+	</a>
 </p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
 
-## 🚀 Quick start
+## Issues
 
-1.  **Create a Gatsby site.**
+Please file an issue by going to the [issues tab](https://github.com/unesic/unesic-io/issues) or on one the following:
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+- [Here](https://github.com/unesic/unesic-io/issues/new?assignees=unesic&labels=bug&template=bug-report.md&title=%5BBUG%5D+) – for bugs, missing documentation, or unexpected behavior.
+- [Here](https://github.com/unesic/unesic-io/issues/new?assignees=unesic&labels=enhancement&template=feature_request.md&title=%5BFEATURE%5D) – for all feature requests.
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+## License
 
-2.  **Start developing.**
+MIT License
 
-    Navigate into your new site’s directory and start it up.
+Copyright (c) 2021 Uroš Nešić [https://unesic.io](https://unesic.io) ([info@unesic.io](mailto:info@unesic.io))
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-3.  **Open the code and start customizing!**
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-    Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.js` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

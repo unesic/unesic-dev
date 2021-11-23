@@ -2,8 +2,13 @@ const path = require("path");
 
 module.exports = {
 	siteMetadata: {
-		siteUrl: "https://unesic.io/",
-		title: "unesic.io",
+		url: "https://unesic.io",
+		siteUrl: "https://unesic.io",
+		title: "Uroš Nešić",
+		titleTemplate: "%s – Uroš Nešić",
+		description:
+			"A software engineer specializing in full-stack web development with primary focus on the front-end technologies.",
+		image: "/thumbnail.png",
 	},
 	plugins: [
 		{
