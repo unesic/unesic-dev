@@ -1,6 +1,9 @@
 import { mode } from "@chakra-ui/theme-tools";
 
 export const Code = {
+	baseStyle: {
+		whiteSpace: "nowrap",
+	},
 	variants: {
 		sub: (props) => ({
 			bg: mode("app.light.dusk.200", "app.dark.dusk.200")(props),

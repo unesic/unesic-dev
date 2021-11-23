@@ -1,5 +1,5 @@
-<h1 align="center"><a href="https://unesic.io" target="_blank">unesic.io</a></h1>
-<p align="center">Uroš Nešić's Personal website</p>
+<h1 align="center">unesic.io</h1>
+<p align="center">Personal portoflio website made using Gatsby + TypeScript, along with Chakra UI.</p>
 
 <p align="center">
 	<a href="https://app.netlify.com/sites/unesic-io/deploys" target="_blank" title="Netlify Status">
@@ -13,11 +13,18 @@
 	</a>
 </p>
 
+## Resume
+
+- [Serbian Light](https://github.com/unesic/unesic-io/raw/master/static/Uros-Nesic-Resume-sr-light.pdf)
+- [Serbian Dark](https://github.com/unesic/unesic-io/raw/master/static/Uros-Nesic-Resume-sr-dark.pdf)
+- [English Light](https://github.com/unesic/unesic-io/raw/master/static/Uros-Nesic-Resume-en-light.pdf)
+- [English Dark](https://github.com/unesic/unesic-io/raw/master/static/Uros-Nesic-Resume-en-dark.pdf)
+
 ## Issues
 
 Please file an issue by going to the [issues tab](https://github.com/unesic/unesic-io/issues) or on one the following:
 
-- [Here](https://github.com/unesic/unesic-io/issues/new?assignees=unesic&labels=bug&template=bug-report.md&title=%5BBUG%5D+) – for bugs, missing documentation, or unexpected behavior.
+- [Here](https://github.com/unesic/unesic-io/issues/new?assignees=unesic&labels=bug&template=bug-report.md&title=%5BBUG%5D) – for bugs, missing documentation, or unexpected behavior.
 - [Here](https://github.com/unesic/unesic-io/issues/new?assignees=unesic&labels=enhancement&template=feature_request.md&title=%5BFEATURE%5D) – for all feature requests.
 
 ## License

@@ -5,7 +5,7 @@ module.exports = {
 		url: "https://unesic.io",
 		siteUrl: "https://unesic.io",
 		title: "Uroš Nešić",
-		titleTemplate: "%s – Uroš Nešić",
+		titleTemplate: "%s – Making web go brrr.",
 		description:
 			"A software engineer specializing in full-stack web development with primary focus on the front-end technologies.",
 		image: "/thumbnail.png",

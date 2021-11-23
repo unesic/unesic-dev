@@ -63,6 +63,8 @@ export const Project: React.FC<ProjectProps> = ({
 						_hover={{ opacity: 1 }}
 						transition="opacity 0.2s ease-in-out 0s"
 						alt={`${title} screenshot`}
+						htmlWidth="1440"
+						htmlHeight="916"
 					/>
 				</Link>
 			</GridItem>

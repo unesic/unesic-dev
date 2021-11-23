@@ -1,4 +1,22 @@
+/**
+ * Base
+ */
 import React, { useRef } from "react";
+/**
+ * Utilities
+ */
+import { LanguageProvider } from "lib/LanguageContext";
+
+/**
+ * Components
+ */
+import { SEO } from "components/SEO";
+import { Header } from "components/Header";
+import { Ribbon } from "components/Ribbon";
+
+/**
+ * Chakra UI
+ */
 import {
 	Container,
 	Heading,
@@ -6,9 +24,6 @@ import {
 	Button,
 	useColorMode,
 } from "@chakra-ui/react";
-import { Ribbon } from "components/Ribbon";
-import { Header } from "components/Header";
-import { LanguageProvider } from "lib/LanguageContext";
 
 const NotFoundPage: React.FC = () => {
 	const { colorMode } = useColorMode();
@@ -16,6 +31,7 @@ const NotFoundPage: React.FC = () => {
 
 	return (
 		<main style={{ overflowX: "hidden" }}>
+			<SEO />
 			<LanguageProvider>
 				<Header ref={header} />
 				<Container
