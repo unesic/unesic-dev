@@ -51,18 +51,15 @@ export const About = React.forwardRef<HTMLDivElement, AboutProps>(({}, ref) => {
 				"container.xl",
 				"container.xl",
 			]}
-			px="12"
+			px={["8", "8", "12"]}
 			py="32"
 		>
 			<Code>{_t.intro}</Code>
 			<Heading variant="h3" as="h3">
 				{_t.head}
 			</Heading>
-			<Grid
-				templateColumns="repeat(12, 1fr)"
-				gap={["0", "0", "0", "20", "20", "20"]}
-			>
-				<GridItem colSpan={[12, 12, 12, 7, 7, 7]}>
+			<Grid templateColumns="repeat(12, 1fr)" gap={["0", "0", "0", "20"]}>
+				<GridItem colSpan={[12, 12, 12, 7]}>
 					{_t.copy.map((t) => (
 						<Text key={uuidv4()} marginTop="4">
 							{t.replace("%months%", monthDiff)}
@@ -72,9 +69,6 @@ export const About = React.forwardRef<HTMLDivElement, AboutProps>(({}, ref) => {
 						templateColumns={[
 							"repeat(1, 1fr)",
 							"repeat(1, 1fr)",
-							"repeat(2, 1fr)",
-							"repeat(2, 1fr)",
-							"repeat(2, 1fr)",
 							"repeat(2, 1fr)",
 						]}
 						gap="2"
@@ -90,9 +84,9 @@ export const About = React.forwardRef<HTMLDivElement, AboutProps>(({}, ref) => {
 					</Grid>
 				</GridItem>
 				<GridItem
-					colSpan={[12, 10, 10, 5, 5, 5]}
-					colStart={[1, 2, 2, "auto", "auto", "auto"]}
-					minH={["20rem", "20rem", "25rem", "100%", "100%", "100%"]}
+					colSpan={[12, 10, 10, 5]}
+					colStart={[1, 2, 2, "auto"]}
+					minH={["20rem", "20rem", "25rem", "100%"]}
 					bg={`app.${colorMode}.dusk.100`}
 					opacity="0.2"
 					borderRadius="8"

@@ -25,6 +25,7 @@ export const Ribbon: React.FC<RibbonProps> = () => {
 			bottom="0"
 			left="16"
 			align="center"
+			pb={[4, 4, 4, 4, 4, 0]}
 		>
 			<Stack direction={["row", "row", "row", "row", "row", "column"]}>
 				<Link

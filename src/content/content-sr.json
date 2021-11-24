@@ -59,22 +59,30 @@
 					"head": "ENGLESKI",
 					"dark": {
 						"text": "Uros Nesic Resume – Dark",
-						"url": "/Uros-Nesic-Resume-en-dark.pdf"
+						"url": "/resume/Uros-Nesic-Resume-EN-Dark.pdf"
 					},
 					"light": {
 						"text": "Uros Nesic Resume – Light",
-						"url": "/Uros-Nesic-Resume-en-light.pdf"
+						"url": "/resume/Uros-Nesic-Resume-EN-Light.pdf"
+					},
+					"print": {
+						"text": "Uros Nesic Resume – Print",
+						"url": "/resume/Uros-Nesic-Resume-EN-Print.pdf"
 					}
 				},
 				{
 					"head": "SRPSKI",
 					"dark": {
 						"text": "Uros Nesic Resume – Dark",
-						"url": "/Uros-Nesic-Resume-sr-dark.pdf"
+						"url": "/resume/Uros-Nesic-Resume-SR-Dark.pdf"
 					},
 					"light": {
 						"text": "Uros Nesic Resume – Light",
-						"url": "/Uros-Nesic-Resume-sr-light.pdf"
+						"url": "/resume/Uros-Nesic-Resume-SR-Light.pdf"
+					},
+					"print": {
+						"text": "Uros Nesic Resume – Print",
+						"url": "/resume/Uros-Nesic-Resume-SR-Print.pdf"
 					}
 				}
 			],
@@ -194,8 +202,8 @@
 					}
 				],
 				"images": {
-					"light": "/boleskine-home-light.png",
-					"dark": "/boleskine-home-dark.png"
+					"light": "/images/boleskine-home-light.png",
+					"dark": "/images/boleskine-home-dark.png"
 				}
 			},
 			{
@@ -226,8 +234,8 @@
 					}
 				],
 				"images": {
-					"light": "/trello-home-light.png",
-					"dark": "/trello-home-dark.png"
+					"light": "/images/trello-home-light.png",
+					"dark": "/images/trello-home-dark.png"
 				}
 			}
 		]

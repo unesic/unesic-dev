@@ -88,6 +88,9 @@ export const ResumePopup: React.FC<ResumePopupProps> = () => {
 							<Link href={v.light.url} isExternal variant="simple-link">
 								{v.light.text} <ExternalLink />
 							</Link>
+							<Link href={v.light.url} isExternal variant="simple-link">
+								{v.print.text} <ExternalLink />
+							</Link>
 						</Box>
 					))}
 				</PopoverBody>
@@ -102,7 +105,7 @@ export const ResumePopup: React.FC<ResumePopupProps> = () => {
 						>
 							{_t.resume.buttons.default}
 						</Button>
-						<Button as="a" href="/Uros-Nesic-Resume-Pack.zip" download>
+						<Button as="a" href="/resume/Uros-Nesic-Resume-Pack.zip" download>
 							{_t.resume.buttons.pack}
 						</Button>
 					</ButtonGroup>

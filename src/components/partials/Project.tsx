@@ -1,7 +1,7 @@
 /**
  * Base
  */
-import React from "react";
+import React, { useMemo } from "react";
 
 /**
  * Utilities and types
@@ -21,8 +21,9 @@ import {
 	Heading,
 	Text,
 	Link,
-	useColorMode,
 	Image,
+	useColorMode,
+	useBreakpointValue,
 } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
 
@@ -40,20 +41,23 @@ export const Project: React.FC<ProjectProps> = ({
 	images,
 }) => {
 	const { colorMode } = useColorMode();
+	const isMobile = useBreakpointValue({ base: true, md: false });
+	const isLtr = useMemo(() => dir === "ltr", [dir]);
 
 	return (
 		<Grid
 			templateColumns="repeat(12, 1fr)"
-			mt="16"
 			columnGap={["0", "0", "0", "12"]}
+			rowGap="4"
+			mt="16"
 		>
 			<GridItem
 				gridColumn={
-					dir === "ltr"
-						? ["1 / full", "2 / 12", "2 / 12", "7 / -1", "7 / -1", "7 / -1"]
-						: ["1 / full", "2 / 12", "2 / 12", "1 / 7", "1 / 7", "1 / 7"]
+					isLtr
+						? ["1 / full", "1 / full", "2 / 12", "7 / -1"]
+						: ["1 / full", "1 / full", "2 / 12", "1 / 7"]
 				}
-				gridRow={["1 / 2", "1 / 2", "1 / 2", "1 / -1", "1 / -1", "1 / -1"]}
+				gridRow={["1 / 2", "1 / 2", "1 / 2", "1 / -1"]}
 				borderRadius="8"
 			>
 				<Link isExternal href={links[1].link}>
@@ -65,24 +69,22 @@ export const Project: React.FC<ProjectProps> = ({
 						alt={`${title} screenshot`}
 						htmlWidth="1440"
 						htmlHeight="916"
+						mt={["0", "0", "0", "12", "0"]}
 					/>
 				</Link>
 			</GridItem>
 
 			<GridItem
 				gridColumn={
-					dir === "ltr"
-						? ["1 / full", "2 / 12", "2 / 12", "1 / 8", "1 / 8", "1 / 8"]
-						: ["1 / full", "2 / 12", "2 / 12", "6 / -1", "6 / -1", "6 / -1"]
+					isLtr
+						? ["1 / full", "1 / full", "2 / 12", "1 / 8"]
+						: ["1 / full", "1 / full", "2 / 12", "6 / -1"]
 				}
-				gridRow={["unset", "unset", "unset", "1 / -1", "1 / -1", "1 / -1"]}
-				textAlign={
-					dir === "ltr"
-						? "left"
-						: ["left", "left", "left", "right", "right", "right"]
-				}
-				zIndex="1"
+				gridRow={["unset", "unset", "unset", "1 / -1"]}
+				px={["4", "4", "6", "0"]}
+				textAlign={isLtr ? "left" : ["left", "left", "left", "right"]}
 				position="relative"
+				zIndex="1"
 			>
 				<Text variant="tech" color={`app.${colorMode}.accent.solid`}>
 					{head}
@@ -92,41 +94,62 @@ export const Project: React.FC<ProjectProps> = ({
 						{title}
 					</Link>
 				</Heading>
-				<Box p="4" bg={`app.${colorMode}.dusk.200`} borderRadius="8" mt="8">
+				<Box
+					p="4"
+					bg={`app.${colorMode}.dusk.200`}
+					borderRadius="8"
+					mt={["4", "4", "8"]}
+				>
 					<Text>{desc}</Text>
 				</Box>
-				<VStack
-					spacing="3"
-					align={
-						dir === "ltr"
-							? "start"
-							: ["start", "start", "start", "end", "end", "end"]
-					}
-					mt="8"
-				>
-					{stack.map((col) => (
+				{!isMobile ? (
+					<VStack
+						spacing="3"
+						align={isLtr ? "start" : ["start", "start", "start", "end"]}
+						mt="8"
+					>
+						{stack.map((col) => (
+							<HStack
+								key={uuidv4()}
+								as="ul"
+								role="list"
+								spacing="0"
+								wrap="wrap"
+							>
+								{col.map((tech, idx) => {
+									const mr =
+										idx !== col.length - 1 ? "1.25rem !important" : "0";
+									return (
+										<Text key={uuidv4()} as="li" variant="tech" mr={mr}>
+											{tech}
+										</Text>
+									);
+								})}
+							</HStack>
+						))}
+					</VStack>
+				) : (
+					<VStack spacing="0" align="start" mt="4">
 						<HStack key={uuidv4()} as="ul" role="list" spacing="0" wrap="wrap">
-							{col.map((tech, idx) => (
-								<Text
-									key={uuidv4()}
-									as="li"
-									variant="tech"
-									mr={idx !== col.length - 1 ? "1.25rem !important" : "0"}
-								>
-									{tech}
-								</Text>
-							))}
+							{stack.map((col) =>
+								col.map((tech, idx) => {
+									const mr =
+										idx !== col.length - 1 ? "1.25rem !important" : "0";
+									const mt = "1.25rem !important";
+									return (
+										<Text key={uuidv4()} as="li" variant="tech" mr={mr} mt={mt}>
+											{tech}
+										</Text>
+									);
+								})
+							)}
 						</HStack>
-					))}
-				</VStack>
+					</VStack>
+				)}
 				<HStack
 					spacing="0"
-					justify={
-						dir === "ltr"
-							? "start"
-							: ["start", "start", "start", "end", "end", "end"]
-					}
-					mt="8"
+					justify={isLtr ? "start" : ["start", "start", "start", "end"]}
+					mt={["4", "4", "8"]}
 				>
 					{links.map(({ type, link }) => (
 						<Link

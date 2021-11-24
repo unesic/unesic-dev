@@ -9,19 +9,20 @@ export interface NavItem {
 	url?: string;
 }
 
+export enum ResumeVariants {
+	DARK = "dark",
+	LIGHT = "light",
+	PRINT = "print",
+}
+
 export interface Resume {
 	head: string;
 	copy: string[];
 	variants: {
 		head: string;
-		dark: {
-			text: string;
-			url: string;
-		};
-		light: {
-			text: string;
-			url: string;
-		};
+		[ResumeVariants.DARK]: { text: string; url: string };
+		[ResumeVariants.LIGHT]: { text: string; url: string };
+		[ResumeVariants.PRINT]: { text: string; url: string };
 	}[];
 	buttons: {
 		cta: string;

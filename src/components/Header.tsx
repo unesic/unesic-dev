@@ -202,7 +202,7 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 					)}
 
 					{isDesktop && (
-						<Box mr="auto" ml={["4", "4", "4", "4"]}>
+						<Box mr="auto" ml="4">
 							<Switch
 								active={language === Language.SR}
 								icon={language.toUpperCase()}
@@ -275,7 +275,7 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 								)}
 
 								{!isDesktop && (
-									<Box mr="auto" ml={["4", "4", "4", "4"]}>
+									<Box mr="auto" ml="4">
 										<Switch
 											active={language === Language.SR}
 											icon={language.toUpperCase()}
