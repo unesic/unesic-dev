@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from "react";
+import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import { LanguageProvider } from "lib/LanguageContext";
 
 import { Header } from "components/Header";
@@ -10,6 +10,7 @@ import { About } from "components/home/About";
 import { Experience } from "components/home/Experience";
 import { Projects } from "components/home/Projects";
 import { Contact } from "components/home/Contact";
+import { useColorMode } from "@chakra-ui/color-mode";
 
 export type DivRef = React.MutableRefObject<HTMLDivElement>;
 
@@ -20,6 +21,8 @@ const IndexPage: React.FC = () => {
 	const experience = useRef() as DivRef;
 	const projects = useRef() as DivRef;
 	const contact = useRef() as DivRef;
+
+	const { setColorMode } = useColorMode();
 
 	const refs = useMemo(
 		() => ({
@@ -32,6 +35,22 @@ const IndexPage: React.FC = () => {
 		}),
 		[]
 	);
+
+	const handleModeChange = useCallback((e: any) => {
+		setColorMode(e.matches ? "dark" : "light");
+	}, []);
+
+	useEffect(() => {
+		window
+			.matchMedia("(prefers-color-scheme: dark)")
+			.addEventListener("change", handleModeChange);
+
+		return () => {
+			window
+				.matchMedia("(prefers-color-scheme: dark)")
+				.removeEventListener("change", handleModeChange);
+		};
+	}, []);
 
 	return (
 		<main style={{ overflowX: "hidden" }}>

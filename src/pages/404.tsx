@@ -1,7 +1,7 @@
 /**
  * Base
  */
-import React, { useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 /**
  * Utilities
  */
@@ -26,8 +26,24 @@ import {
 } from "@chakra-ui/react";
 
 const NotFoundPage: React.FC = () => {
-	const { colorMode } = useColorMode();
+	const { colorMode, setColorMode } = useColorMode();
 	const header = useRef() as React.MutableRefObject<HTMLDivElement>;
+
+	const handleModeChange = useCallback((e: any) => {
+		setColorMode(e.matches ? "dark" : "light");
+	}, []);
+
+	useEffect(() => {
+		window
+			.matchMedia("(prefers-color-scheme: dark)")
+			.addEventListener("change", handleModeChange);
+
+		return () => {
+			window
+				.matchMedia("(prefers-color-scheme: dark)")
+				.removeEventListener("change", handleModeChange);
+		};
+	}, []);
 
 	return (
 		<main style={{ overflowX: "hidden" }}>

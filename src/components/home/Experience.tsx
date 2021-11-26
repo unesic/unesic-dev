@@ -27,11 +27,12 @@ export const Experience = React.forwardRef<HTMLDivElement, ExperienceProps>(
 				maxW={[
 					"100%",
 					"container.sm",
-					"container.sm",
+					"container.md",
 					"container.lg",
 					"container.lg",
 					"container.lg",
 				]}
+				px={["8", "8", "8", "12"]}
 				py="32"
 				ref={ref}
 			>

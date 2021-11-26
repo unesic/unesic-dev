@@ -49,7 +49,7 @@ export const Project: React.FC<ProjectProps> = ({
 			templateColumns="repeat(12, 1fr)"
 			columnGap={["0", "0", "0", "12"]}
 			rowGap="4"
-			mt="16"
+			mt={["10", "10", "12", "8", "16"]}
 		>
 			<GridItem
 				gridColumn={
@@ -82,7 +82,7 @@ export const Project: React.FC<ProjectProps> = ({
 				}
 				gridRow={["unset", "unset", "unset", "1 / -1"]}
 				px={["4", "4", "6", "0"]}
-				textAlign={isLtr ? "left" : ["left", "left", "left", "right"]}
+				textAlign={["center", "center", "center", isLtr ? "left" : "right"]}
 				position="relative"
 				zIndex="1"
 			>
@@ -98,14 +98,14 @@ export const Project: React.FC<ProjectProps> = ({
 					p="4"
 					bg={`app.${colorMode}.dusk.200`}
 					borderRadius="8"
-					mt={["4", "4", "8"]}
+					mt={["4", "4", "4", "8"]}
 				>
 					<Text>{desc}</Text>
 				</Box>
 				{!isMobile ? (
 					<VStack
 						spacing="3"
-						align={isLtr ? "start" : ["start", "start", "start", "end"]}
+						align={["center", "center", "center", isLtr ? "start" : "end"]}
 						mt="8"
 					>
 						{stack.map((col) => (
@@ -129,13 +129,19 @@ export const Project: React.FC<ProjectProps> = ({
 						))}
 					</VStack>
 				) : (
-					<VStack spacing="0" align="start" mt="4">
-						<HStack key={uuidv4()} as="ul" role="list" spacing="0" wrap="wrap">
+					<VStack mt="4">
+						<HStack
+							key={uuidv4()}
+							as="ul"
+							role="list"
+							spacing="0"
+							wrap="wrap"
+							justify="center"
+						>
 							{stack.map((col) =>
 								col.map((tech, idx) => {
-									const mr =
-										idx !== col.length - 1 ? "1.25rem !important" : "0";
-									const mt = "1.25rem !important";
+									const mr = idx !== col.length - 1 ? "1rem !important" : "0";
+									const mt = "0.75rem !important";
 									return (
 										<Text key={uuidv4()} as="li" variant="tech" mr={mr} mt={mt}>
 											{tech}
@@ -148,7 +154,7 @@ export const Project: React.FC<ProjectProps> = ({
 				)}
 				<HStack
 					spacing="0"
-					justify={isLtr ? "start" : ["start", "start", "start", "end"]}
+					justify={["center", "center", "center", isLtr ? "start" : "end"]}
 					mt={["4", "4", "8"]}
 				>
 					{links.map(({ type, link }) => (

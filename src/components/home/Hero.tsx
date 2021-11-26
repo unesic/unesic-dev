@@ -45,7 +45,7 @@ export const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
 			if (typeof window === "undefined") return;
 
 			const headerH = headerRef.current?.getBoundingClientRect().height;
-			const newMaxH = window.innerHeight - headerH;
+			const newMaxH = window.innerHeight - headerH * 2;
 			setMaxH(newMaxH);
 		}, [headerRef]);
 
@@ -69,13 +69,14 @@ export const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
 					"container.xl",
 					"container.xl",
 				]}
-				pt="48"
+				pt={["48", "48", "48", "0"]}
 			>
 				<Grid
 					templateColumns="repeat(12, 1fr)"
+					placeContent="center"
+					rowGap="16"
 					maxH={["max-content", "max-content", "max-content", `${maxH}px`]}
 					h={["auto", "auto", "auto", "100vh"]}
-					rowGap="16"
 				>
 					<GridItem
 						colSpan={[12, 12, 12, 6, 6, 6]}

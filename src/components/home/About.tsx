@@ -21,14 +21,15 @@ import {
 	Heading,
 	Text,
 	Code,
-	useColorMode,
+	Image,
 } from "@chakra-ui/react";
+
+import unesic from "../../images/uros-nesic.jpg";
 
 interface AboutProps {}
 
 export const About = React.forwardRef<HTMLDivElement, AboutProps>(({}, ref) => {
 	const _t = useTranslation("about");
-	const { colorMode } = useColorMode();
 
 	const monthDiff = useMemo(() => {
 		const birthday = new Date(1998, 7, 1);
@@ -51,14 +52,18 @@ export const About = React.forwardRef<HTMLDivElement, AboutProps>(({}, ref) => {
 				"container.xl",
 				"container.xl",
 			]}
-			px={["8", "8", "12"]}
+			px={["8", "8", "24", "12"]}
 			py="32"
 		>
 			<Code>{_t.intro}</Code>
 			<Heading variant="h3" as="h3">
 				{_t.head}
 			</Heading>
-			<Grid templateColumns="repeat(12, 1fr)" gap={["0", "0", "0", "20"]}>
+			<Grid
+				templateColumns="repeat(12, 1fr)"
+				columnGap={["0", "0", "0", "20"]}
+				rowGap={["8", "8", "16"]}
+			>
 				<GridItem colSpan={[12, 12, 12, 7]}>
 					{_t.copy.map((t) => (
 						<Text key={uuidv4()} marginTop="4">
@@ -83,14 +88,18 @@ export const About = React.forwardRef<HTMLDivElement, AboutProps>(({}, ref) => {
 						))}
 					</Grid>
 				</GridItem>
-				<GridItem
-					colSpan={[12, 10, 10, 5]}
-					colStart={[1, 2, 2, "auto"]}
-					minH={["20rem", "20rem", "25rem", "100%"]}
-					bg={`app.${colorMode}.dusk.100`}
-					opacity="0.2"
-					borderRadius="8"
-				></GridItem>
+				<GridItem colSpan={[12, 10, 10, 5]} colStart={[1, 2, 2, "auto"]}>
+					<Image
+						src={unesic}
+						opacity="0.6"
+						_hover={{ opacity: 1 }}
+						transition="opacity 0.2s ease-in-out 0s"
+						alt="Uros Nesic portrait"
+						htmlWidth="1000"
+						htmlHeight="1000"
+						borderRadius="8"
+					/>
+				</GridItem>
 			</Grid>
 		</Container>
 	);
