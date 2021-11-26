@@ -108,6 +108,8 @@ export const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
 							alt="Character using laptop"
 							ml="auto"
 							mr={["auto", "auto", "auto", "0"]}
+							htmlWidth="236"
+							htmlHeight="341"
 						/>
 					</GridItem>
 				</Grid>

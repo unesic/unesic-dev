@@ -187,6 +187,8 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 								src={headerImage}
 								alt="Character head"
 								maxW={["4rem", "4rem", "4rem", "4rem", "unset"]}
+								htmlWidth="80"
+								htmlHeight="80"
 							/>
 						</Link>
 					</Box>

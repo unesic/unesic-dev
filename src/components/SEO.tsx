@@ -1,6 +1,10 @@
-import React from "react";
+/**
+ * Base
+ */
+import React, { useContext } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { Helmet } from "react-helmet";
+import { LanguageContext } from "lib/LanguageContext";
 
 interface SEOProps {
 	title?: string;
@@ -9,6 +13,7 @@ interface SEOProps {
 }
 
 export const SEO: React.FC<SEOProps> = ({ title, description, image }) => {
+	const { language } = useContext(LanguageContext);
 	const { site } = useStaticQuery(query);
 	const {
 		defaultTitle,
@@ -26,7 +31,11 @@ export const SEO: React.FC<SEOProps> = ({ title, description, image }) => {
 	};
 
 	return (
-		<Helmet title={seo.title} titleTemplate={titleTemplate}>
+		<Helmet
+			title={seo.title}
+			titleTemplate={titleTemplate}
+			htmlAttributes={{ lang: language.toLowerCase() }}
+		>
 			<meta charSet="utf-8" />
 
 			<link rel="canonical" href="https://unesic.io/" />

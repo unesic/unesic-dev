@@ -23,6 +23,21 @@ export const LanguageProvider: React.FC = ({ children }) => {
 	const [language, setLanguage] = useState<Language>(Language.SR);
 
 	useEffect(() => {
+		if (typeof window === "undefined") return;
+
+		const lang = window.localStorage.getItem("unesicio-lang");
+		if (lang && [Language.SR, Language.EN].includes(lang as Language)) {
+			setLanguage(lang as Language);
+		}
+	}, []);
+
+	useEffect(() => {
+		if (typeof window === "undefined") return;
+
+		window.localStorage.setItem("unesicio-lang", language);
+	}, [language]);
+
+	useEffect(() => {
 		const navLang = navigator.language;
 		const is_sr = navLang === "sr";
 		const language = Language[is_sr ? "SR" : "EN"];
