@@ -130,10 +130,24 @@
 		"head": "Gde sam radio.",
 		"jobs": [
 			{
+				"title": "Frontend Developer",
+				"date": {
+					"from": "Februar 2022",
+					"to": "Još uvek"
+				},
+				"company": {
+					"name": "Neopix",
+					"url": "https://weareneopix.com/"
+				},
+				"items": [
+					"Će bude..."
+				]
+			},
+			{
 				"title": "WordPress Developer",
 				"date": {
 					"from": "Februar 2020",
-					"to": "Još uvek"
+					"to": "Februar 2022"
 				},
 				"company": {
 					"name": "BlueGrid",

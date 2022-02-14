@@ -17,10 +17,13 @@
 
 ## Resume
 
-- [Serbian Light](https://github.com/unesic/unesic-io/raw/master/static/Uros-Nesic-Resume-sr-light.pdf)
-- [Serbian Dark](https://github.com/unesic/unesic-io/raw/master/static/Uros-Nesic-Resume-sr-dark.pdf)
-- [English Light](https://github.com/unesic/unesic-io/raw/master/static/Uros-Nesic-Resume-en-light.pdf)
-- [English Dark](https://github.com/unesic/unesic-io/raw/master/static/Uros-Nesic-Resume-en-dark.pdf)
+- [English Dark](https://github.com/unesic/unesic-io/raw/master/static/Uros-Nesic-Resume-EN-Dark.pdf)
+- [English Light](https://github.com/unesic/unesic-io/raw/master/static/Uros-Nesic-Resume-EN-Light.pdf)
+- [English Print](https://github.com/unesic/unesic-io/raw/master/static/Uros-Nesic-Resume-EN-Print.pdf)
+- [Serbian Dark](https://github.com/unesic/unesic-io/raw/master/static/Uros-Nesic-Resume-SR-Dark.pdf)
+- [Serbian Light](https://github.com/unesic/unesic-io/raw/master/static/Uros-Nesic-Resume-SR-Light.pdf)
+- [Serbian Print](https://github.com/unesic/unesic-io/raw/master/static/Uros-Nesic-Resume-SR-Print.pdf)
+- [The whole pack](https://github.com/unesic/unesic-io/raw/master/static/Uros-Nesic-Resume-Pack.zip)
 
 ## Issues
 

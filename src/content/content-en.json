@@ -130,10 +130,24 @@
 		"head": "Where I’ve worked.",
 		"jobs": [
 			{
+				"title": "Frontend Developer",
+				"date": {
+					"from": "February 2022",
+					"to": "Present"
+				},
+				"company": {
+					"name": "Neopix",
+					"url": "https://weareneopix.com/"
+				},
+				"items": [
+					"Coming soon..."
+				]
+			},
+			{
 				"title": "WordPress Developer",
 				"date": {
 					"from": "February 2020",
-					"to": "Present"
+					"to": "February 2022"
 				},
 				"company": {
 					"name": "BlueGrid",
