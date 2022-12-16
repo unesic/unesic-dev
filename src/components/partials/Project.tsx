@@ -1,7 +1,7 @@
 /**
  * Base
  */
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 
 /**
  * Utilities and types
@@ -26,6 +26,7 @@ import {
 	useBreakpointValue,
 } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
+import { ConditionalWrapper } from "components/ConditionalWrapper";
 
 interface ProjectProps extends IProject {
 	dir: "ltr" | "rtl";
@@ -43,6 +44,7 @@ export const Project: React.FC<ProjectProps> = ({
 	const { colorMode } = useColorMode();
 	const isMobile = useBreakpointValue({ base: true, md: false });
 	const isLtr = useMemo(() => dir === "ltr", [dir]);
+	const isLinkValid = useCallback((link: string) => link !== "#", []);
 
 	return (
 		<Grid
@@ -60,7 +62,10 @@ export const Project: React.FC<ProjectProps> = ({
 				gridRow={["1 / 2", "1 / 2", "1 / 2", "1 / -1"]}
 				borderRadius="8"
 			>
-				<Link isExternal href={links[1].link}>
+				<ConditionalWrapper
+					condition={isLinkValid(links[1].link)}
+					wrapper={(c) => <Link isExternal href={links[1].link} children={c} />}
+				>
 					<Image
 						src={images[colorMode]}
 						opacity="0.6"
@@ -71,7 +76,7 @@ export const Project: React.FC<ProjectProps> = ({
 						htmlHeight="916"
 						mt={["0", "0", "0", "12", "0"]}
 					/>
-				</Link>
+				</ConditionalWrapper>
 			</GridItem>
 
 			<GridItem
@@ -90,9 +95,14 @@ export const Project: React.FC<ProjectProps> = ({
 					{head}
 				</Text>
 				<Heading variant="h4" as="h4">
-					<Link isExternal href={links[1].link}>
+					<ConditionalWrapper
+						condition={isLinkValid(links[1].link)}
+						wrapper={(c) => (
+							<Link isExternal href={links[1].link} children={c} />
+						)}
+					>
 						{title}
-					</Link>
+					</ConditionalWrapper>
 				</Heading>
 				<Box
 					p="4"
@@ -161,8 +171,10 @@ export const Project: React.FC<ProjectProps> = ({
 						<Link
 							key={uuidv4()}
 							variant="icon"
-							href={link}
-							isExternal
+							as={isLinkValid(link) ? "a" : "span"}
+							href={isLinkValid(link) ? link : undefined}
+							cursor={isLinkValid(link) ? "pointer" : "auto"}
+							isExternal={isLinkValid(link)}
 							aria-label={
 								type === "github"
 									? `View ${title} source code`

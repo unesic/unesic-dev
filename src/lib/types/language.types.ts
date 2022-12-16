@@ -40,7 +40,7 @@ export interface Hero {
 	intro: string;
 	head: string;
 	subhead: string;
-	copy: string[];
+	copy: string;
 	cta: string;
 }
 
@@ -88,6 +88,7 @@ export interface Project {
 export interface Projects {
 	intro: string;
 	head: string;
+	copy: string;
 	projects: Project[];
 }
 export interface Contact {

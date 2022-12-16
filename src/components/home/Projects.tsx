@@ -13,7 +13,7 @@ import { useTranslation } from "lib/hooks/useTranslation";
  * Components and Chakra UI
  */
 import { Project } from "components/partials/Project";
-import { Container, Box, Heading, Code } from "@chakra-ui/react";
+import { Container, Box, Heading, Code, Text } from "@chakra-ui/react";
 
 interface ProjectsProps {}
 
@@ -40,6 +40,13 @@ export const Projects = React.forwardRef<HTMLDivElement, ProjectsProps>(
 					<Heading variant="h3" as="h3">
 						{_t.head}
 					</Heading>
+					<Text
+						mt="4"
+						mx={["auto", "auto", "auto", "0"]}
+						maxW={["24rem", "24rem", "24rem", "50%", "50%"]}
+					>
+						{_t.copy}
+					</Text>
 				</Box>
 
 				{_t.projects.map((project, idx) => (

@@ -97,16 +97,14 @@
 		"intro": "Hi, my name is",
 		"head": "Uroš Nešić.",
 		"subhead": "I make web go brrr.",
-		"copy": [
-			"A software engineer specializing in full-stack web development with primary focus on the front-end technologies."
-		],
+		"copy": "A software engineer specializing in full-stack web development with primary focus on the front-end technologies.",
 		"cta": "Get to know me!"
 	},
 	"about": {
 		"intro": "Who the hell is this guy?",
 		"head": "About me.",
 		"copy": [
-			"We might’ve gotten off on the wrong foot, so allow me to properly introduce myself. Hi, my name is Uroš Nešić, I’m 280 months old and I enjoy building things for the web!",
+			"We might’ve gotten off on the wrong foot, so allow me to properly introduce myself. Hi, my name is Uroš Nešić, I’m %months% months old and I enjoy building things for the web!",
 			"Fueled by undoubtedly weird sense of humor and lots of coffee (mostly the latter), I spend most of my waking hours looking for interesting project ideas and ways to leave my mark on the ethereal thing that is the Internet.",
 			"Here are a few technologies I’ve been working with lately:"
 		],
@@ -114,8 +112,8 @@
 			[
 				"JavaScript (ES6+)",
 				"TypeScript",
-				"React",
-				"Redux"
+				"React (Redux)",
+				"Vue (Vuex)"
 			],
 			[
 				"Node.js",
@@ -182,11 +180,12 @@
 	"projects": {
 		"intro": "Has he got anything to show?",
 		"head": "My latest creations.",
+		"copy": "Projects are unavailable since Heroku got rid of the free plans, and it's a wide-known fact that Serbs are cheap and I'm no different.",
 		"projects": [
 			{
 				"head": "Full-stack project",
 				"title": "Boleskine",
-				"desc": "Note taking and expense tracking application with a handy overview on weekly and monthly income/expense totals accompanied by an analytics graph that provides a more through insight. Authenticate with a simple email/password combination or using social media.",
+				"desc": "Note taking and expense tracking application with a handy overview on weekly and monthly income/expense totals accompanied by an analytics graph that provides a more through insight. Authenticate with a simple email/password combination or using social media SSO.",
 				"stack": [
 					[
 						"React",
@@ -201,8 +200,7 @@
 						"Apollo",
 						"Passport",
 						"GraphQL",
-						"MongoDB",
-						"Heroku"
+						"MongoDB"
 					]
 				],
 				"links": [
@@ -212,7 +210,7 @@
 					},
 					{
 						"type": "external-link",
-						"link": "https://boleskine.unesic.io/"
+						"link": "#"
 					}
 				],
 				"images": {
@@ -228,13 +226,12 @@
 					[
 						"React",
 						"Router",
-						"Styled Components",
-						"Socket.io"
+						"Styled Components"
 					],
 					[
+						"Socket.io",
 						"Feathers",
-						"MongoDB",
-						"Heroku"
+						"MongoDB"
 					]
 				],
 				"links": [
@@ -244,7 +241,7 @@
 					},
 					{
 						"type": "external-link",
-						"link": "https://trello.unesic.io/"
+						"link": "#"
 					}
 				],
 				"images": {

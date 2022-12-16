@@ -102,7 +102,7 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 				document.body.removeEventListener("keydown", onKeyDown);
 				document.body.removeEventListener("keyup", onKeyUp);
 			};
-		}, [isDesktop]);
+		}, [isDesktop, language]);
 
 		useEffect(() => {
 			if (!isDesktop) return;

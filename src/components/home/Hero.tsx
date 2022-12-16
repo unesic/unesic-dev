@@ -95,7 +95,7 @@ export const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
 							mx={["auto", "auto", "auto", "0"]}
 							maxW={["22rem", "22rem", "22rem", "24rem", "100%"]}
 						>
-							{_t.copy[0]}
+							{_t.copy}
 						</Text>
 						<Button mt="12" onClick={scrollToAbout}>
 							{_t.cta}

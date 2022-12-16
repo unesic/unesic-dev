@@ -52,7 +52,7 @@
 		"resume": {
 			"head": "Preuzmi moj CV",
 			"copy": [
-				"Napravio sam svaku moguću varijatnu svog CV-a koju možeš da zamisliš (čitaj 'bilo mu dosadno'). Preuzmi jednu ili ceo paket!"
+				"Napravio sam svaku moguću varijatnu svog CV-a koju možeš da zamisliš (čitaj \"bilo mu dosadno\"). Preuzmi jednu ili ceo paket!"
 			],
 			"variants": [
 				{
@@ -97,9 +97,7 @@
 		"intro": "Ćao, ja sam",
 		"head": "Uroš Nešić.",
 		"subhead": "I make web go brrr.",
-		"copy": [
-			"Developer orijentisan ka full-stack developmentu sa primarnim fokusom na front-end tehnologije."
-		],
+		"copy": "Developer orijentisan ka full-stack developmentu sa primarnim fokusom na front-end tehnologije.",
 		"cta": "Upoznaj me bolje!"
 	},
 	"about": {
@@ -114,8 +112,8 @@
 			[
 				"JavaScript (ES6+)",
 				"TypeScript",
-				"React",
-				"Redux"
+				"React (Redux)",
+				"Vue (Vuex)"
 			],
 			[
 				"Node.js",
@@ -182,6 +180,7 @@
 	"projects": {
 		"intro": "Dobro, ima li šta da mi pokaže?",
 		"head": "Moje najnovije kreacije.",
+		"copy": "Projekti su nedostupni od kada je Heroku ukinuo besplatan plan, a uzev u obzir da je opšte poznato da su Srbi stipse, ni ja nisam bolji.",
 		"projects": [
 			{
 				"head": "Full-stack projekat",
@@ -201,8 +200,7 @@
 						"Apollo",
 						"Passport",
 						"GraphQL",
-						"MongoDB",
-						"Heroku"
+						"MongoDB"
 					]
 				],
 				"links": [
@@ -212,7 +210,7 @@
 					},
 					{
 						"type": "external-link",
-						"link": "https://boleskine.unesic.io/"
+						"link": "#"
 					}
 				],
 				"images": {
@@ -228,13 +226,12 @@
 					[
 						"React",
 						"Router",
-						"Styled Components",
-						"Socket.io"
+						"Styled Components"
 					],
 					[
+						"Socket.io",
 						"Feathers",
-						"MongoDB",
-						"Heroku"
+						"MongoDB"
 					]
 				],
 				"links": [
@@ -244,7 +241,7 @@
 					},
 					{
 						"type": "external-link",
-						"link": "https://trello.unesic.io/"
+						"link": "#"
 					}
 				],
 				"images": {
@@ -258,7 +255,7 @@
 		"intro": "A nije toliko loš...",
 		"head": "Kontaktiraj me.",
 		"copy": [
-			"Imaš pitanje, hoćeš da me angažuješ ili imaš ideju za projekat koji će nam doneti milione i biti nov 'billion dollar unicorn' koji će nas odvesti do meseca?! Javi se i potrudiću se da odgovorim u što kraćem roku!"
+			"Imaš pitanje, hoćeš da me angažuješ ili imaš ideju za projekat koji će nam doneti milione i biti nov \"billion dollar unicorn\" koji će nas odvesti do meseca?! Javi se i potrudiću se da odgovorim u što kraćem roku!"
 		],
 		"cta": "Poašalji email"
 	}
