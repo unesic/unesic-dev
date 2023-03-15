@@ -41,7 +41,7 @@ export const Experience = React.forwardRef<HTMLDivElement, ExperienceProps>(
 					{_t.head}
 				</Heading>
 				{_t.jobs.map((job) => (
-					<Job key={uuidv4()} {...job} />
+					<Job key={uuidv4()} {...job} labels={_t.labels} />
 				))}
 			</Container>
 		);

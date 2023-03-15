@@ -104,7 +104,7 @@
 		"intro": "Who the hell is this guy?",
 		"head": "About me.",
 		"copy": [
-			"We might’ve gotten off on the wrong foot, so allow me to properly introduce myself. Hi, my name is Uroš Nešić, I’m %months% months old and I enjoy building things for the web!",
+			"We might’ve gotten off on the wrong foot, so allow me to properly introduce myself. Hi, my name is Uroš Nešić, I’m %months% old and I enjoy building things for the web!",
 			"Fueled by undoubtedly weird sense of humor and lots of coffee (mostly the latter), I spend most of my waking hours looking for interesting project ideas and ways to leave my mark on the ethereal thing that is the Internet.",
 			"Here are a few technologies I’ve been working with lately:"
 		],
@@ -126,11 +126,15 @@
 	"experience": {
 		"intro": "Does he have any experience?",
 		"head": "Where I’ve worked.",
+		"labels": {
+			"year": ["year", "years"],
+			"month": ["month", "months"]
+		},
 		"jobs": [
 			{
 				"title": "Frontend Developer",
 				"date": {
-					"from": "February 2022",
+					"from": "2022-01-31T23:00:00.000Z",
 					"to": "Present"
 				},
 				"company": {
@@ -144,8 +148,8 @@
 			{
 				"title": "WordPress Developer",
 				"date": {
-					"from": "February 2020",
-					"to": "February 2022"
+					"from": "2020-01-31T23:00:00.000Z",
+					"to": "2022-01-31T23:00:00.000Z"
 				},
 				"company": {
 					"name": "BlueGrid",
@@ -162,8 +166,8 @@
 			{
 				"title": "WordPress Developer",
 				"date": {
-					"from": "September 2018",
-					"to": "January 2020"
+					"from": "2018-08-31T22:00:00.000Z",
+					"to": "2020-01-31T23:00:00.000Z"
 				},
 				"company": {
 					"name": "Ivapix",

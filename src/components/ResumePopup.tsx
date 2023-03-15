@@ -1,12 +1,13 @@
 /**
  * Base
  */
-import React, { useRef } from "react";
+import React, { useContext, useMemo, useRef } from "react";
 
 /**
  * Utilities
  */
 import { v4 as uuidv4 } from "uuid";
+import { LanguageContext } from "lib/LanguageContext";
 import { useTranslation } from "lib/hooks/useTranslation";
 
 /**
@@ -36,8 +37,16 @@ interface ResumePopupProps {}
 export const ResumePopup: React.FC<ResumePopupProps> = () => {
 	const ref = useRef() as React.RefObject<any>;
 
+	const { language } = useContext(LanguageContext);
 	const _t = useTranslation("header");
 	const { colorMode } = useColorMode();
+
+	const defaultResumeURL = useMemo(() => {
+		const lang = language.toUpperCase();
+		const modeSplit = colorMode.split("");
+		const mode = [modeSplit[0].toUpperCase(), ...modeSplit.splice(1)].join("");
+		return `/resume/Uros-Nesic-Resume-${lang}-${mode}.pdf`;
+	}, [language, colorMode]);
 
 	return (
 		<Popover
@@ -47,11 +56,7 @@ export const ResumePopup: React.FC<ResumePopupProps> = () => {
 			closeOnBlur
 		>
 			<PopoverTrigger>
-				<Button
-					as="a"
-					target="_blank"
-					href={`Uros-Nesic-Resume-${"en"}-${colorMode}.pdf`}
-				>
+				<Button as="a" target="_blank" href={defaultResumeURL}>
 					{_t.resume.buttons.cta}
 				</Button>
 			</PopoverTrigger>
@@ -88,7 +93,7 @@ export const ResumePopup: React.FC<ResumePopupProps> = () => {
 							<Link href={v.light.url} isExternal variant="simple-link">
 								{v.light.text} <ExternalLink />
 							</Link>
-							<Link href={v.light.url} isExternal variant="simple-link">
+							<Link href={v.print.url} isExternal variant="simple-link">
 								{v.print.text} <ExternalLink />
 							</Link>
 						</Box>
@@ -99,7 +104,7 @@ export const ResumePopup: React.FC<ResumePopupProps> = () => {
 						<Button
 							as="a"
 							target="_blank"
-							href={`Uros-Nesic-Resume-${"en"}-${colorMode}.pdf`}
+							href={defaultResumeURL}
 							aria-label="Download resume"
 							ref={ref}
 						>

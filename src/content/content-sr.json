@@ -104,7 +104,7 @@
 		"intro": "Ko je bre ovaj?",
 		"head": "O meni.",
 		"copy": [
-			"Možda nismo baš najbolje počeli, tako da, dozvoli mi da se predstavim kako red nalaže. Ćao, zovem se Uroš Nešić, imam %months% meseci i uživam da pravim stvarčice za web!",
+			"Možda nismo baš najbolje počeli, tako da, dozvoli mi da se predstavim kako red nalaže. Ćao, zovem se Uroš Nešić, star sam %months% i uživam da pravim stvarčice za web!",
 			"Uz nesumnjivo uvrnutim smislom za humor i jakom domaćom kafom (uglavnom ovim drugim, bez šećera razume se), provodim veći deo svog dana u potrazi za interesantnim idejama za projekte i načinima da ostavim svoj trag na eteričnom entitetu zvanom Internet.",
 			"Nekoliko tehnologija sa kojima sam radio u poslednje vreme:"
 		],
@@ -126,11 +126,15 @@
 	"experience": {
 		"intro": "Je l' ima uopšte iskustva?",
 		"head": "Gde sam radio.",
+		"labels": {
+			"year": ["godina", "godine"],
+			"month": ["mesec", "meseca", "meseci"]
+		},
 		"jobs": [
 			{
 				"title": "Frontend Developer",
 				"date": {
-					"from": "Februar 2022",
+					"from": "2022-01-31T23:00:00.000Z",
 					"to": "Još uvek"
 				},
 				"company": {
@@ -144,8 +148,8 @@
 			{
 				"title": "WordPress Developer",
 				"date": {
-					"from": "Februar 2020",
-					"to": "Februar 2022"
+					"from": "2020-01-31T23:00:00.000Z",
+					"to": "2022-01-31T23:00:00.000Z"
 				},
 				"company": {
 					"name": "BlueGrid",
@@ -162,8 +166,8 @@
 			{
 				"title": "WordPress Developer",
 				"date": {
-					"from": "Septembar 2018",
-					"to": "Januar 2020"
+					"from": "2018-08-31T22:00:00.000Z",
+					"to": "2020-01-31T23:00:00.000Z"
 				},
 				"company": {
 					"name": "Ivapix",

@@ -1,13 +1,15 @@
 /**
  * Base
  */
-import React, { useMemo } from "react";
+import React, { useContext, useMemo } from "react";
 
 /**
  * Utilities
  */
+import dayjs from "dayjs";
 import { v4 as uuidv4 } from "uuid";
 import { useTranslation } from "lib/hooks/useTranslation";
+import { LanguageContext, Language as ELanguage } from "lib/LanguageContext";
 
 /**
  * Chakra UI
@@ -30,15 +32,23 @@ interface AboutProps {}
 
 export const About = React.forwardRef<HTMLDivElement, AboutProps>(({}, ref) => {
 	const _t = useTranslation("about");
+	const { labels } = useTranslation("experience");
+	const { language } = useContext(LanguageContext);
 
 	const monthDiff = useMemo(() => {
-		const birthday = new Date(1998, 7, 1);
-		const today = new Date();
-		const months = today.getMonth() - birthday.getMonth();
-		const years = today.getFullYear() - birthday.getFullYear();
+		const monthDiff = dayjs(new Date()).diff(new Date(98, 6, 1), "months");
+		const monthDiffCen = monthDiff % 100;
+		const monthDiffDec = monthDiffCen % 10;
 
-		return (months + years * 12 + 1).toString();
-	}, []);
+		const isEdge = monthDiffCen > 10 && monthDiffCen < 20;
+		const is234 = [2, 3, 4].includes(monthDiffDec);
+
+		const monthLabel =
+			language === ELanguage.EN
+				? labels.month[monthDiffDec === 1 ? 0 : 1]
+				: labels.month[isEdge ? 2 : monthDiffDec === 1 ? 0 : is234 ? 1 : 2];
+		return `${monthDiff} ${monthLabel}`;
+	}, [language]);
 
 	return (
 		<Container

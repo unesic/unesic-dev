@@ -55,7 +55,7 @@ export interface Job {
 	title: string;
 	date: {
 		from: string;
-		to: string;
+		to: string | null;
 	};
 	company: {
 		name: string;
@@ -67,6 +67,10 @@ export interface Job {
 export interface Experience {
 	intro: string;
 	head: string;
+	labels: {
+		year: string[];
+		month: string[];
+	};
 	jobs: Job[];
 }
 
