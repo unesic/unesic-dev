@@ -2,10 +2,12 @@
  * Base
  */
 import React, { useCallback, useEffect, useRef } from "react";
+
 /**
  * Utilities
  */
 import { LanguageProvider } from "lib/LanguageContext";
+import { LS_MODE } from "lib/constants";
 
 /**
  * Components
@@ -32,11 +34,11 @@ const NotFoundPage: React.FC = () => {
 
 	useEffect(() => {
 		if (initialLoad.current) {
-			const mode = window.localStorage.getItem("unesicio-mode");
+			const mode = window.localStorage.getItem(LS_MODE);
 			if (mode && ["light", "dark"].includes(mode)) setColorMode(mode);
 
 			initialLoad.current = false;
-		} else window.localStorage.setItem("unesicio-mode", colorMode);
+		} else window.localStorage.setItem(LS_MODE, colorMode);
 	}, [colorMode]);
 
 	const handleModeChange = useCallback((e: any) => {

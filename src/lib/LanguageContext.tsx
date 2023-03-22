@@ -1,4 +1,5 @@
 import React, { createContext, useCallback, useEffect, useState } from "react";
+import { LS_LANG } from "./constants";
 
 export enum Language {
 	SR = "sr",
@@ -12,7 +13,7 @@ interface LanguageState {
 }
 
 const defaultState: LanguageState = {
-	language: Language.SR,
+	language: Language.EN,
 	setLanguage: () => {},
 	toggleLanguage: () => {},
 };
@@ -20,29 +21,26 @@ const defaultState: LanguageState = {
 export const LanguageContext = createContext(defaultState);
 
 export const LanguageProvider: React.FC = ({ children }) => {
-	const [language, setLanguage] = useState<Language>(Language.SR);
+	const [language, setLanguage] = useState<Language>(Language.EN);
 
 	useEffect(() => {
 		if (typeof window === "undefined") return;
 
-		const lang = window.localStorage.getItem("unesicio-lang");
-		if (lang && [Language.SR, Language.EN].includes(lang as Language)) {
-			setLanguage(lang as Language);
-		}
+		const lsLang = window.localStorage.getItem(LS_LANG) as Language | null;
+		const lsLangValid = lsLang && Object.values(Language).includes(lsLang);
+
+		const browserLang = navigator.language;
+		const browserLangSR = browserLang === Language.SR;
+		const fallbackLang = browserLangSR ? browserLang : Language.EN;
+
+		setLanguage(lsLangValid ? lsLang : fallbackLang);
 	}, []);
 
 	useEffect(() => {
 		if (typeof window === "undefined") return;
 
-		window.localStorage.setItem("unesicio-lang", language);
+		window.localStorage.setItem(LS_LANG, language);
 	}, [language]);
-
-	useEffect(() => {
-		const navLang = navigator.language;
-		const is_sr = navLang === "sr";
-		const language = Language[is_sr ? "SR" : "EN"];
-		setLanguage(language);
-	}, [setLanguage]);
 
 	const toggleLanguage = useCallback(() => {
 		switch (language) {
