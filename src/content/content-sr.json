@@ -1,6 +1,7 @@
 {
 	"language": "Srpski",
 	"header": {
+		"tooltip": "Koristi kombinaciju %kbd% + podvučeni karakter za brzu navigaciju.",
 		"nav": [
 			{
 				"id": "header",
@@ -134,7 +135,7 @@
 			{
 				"title": "Frontend Developer",
 				"date": {
-					"from": "2022-01-31T23:00:00.000Z",
+					"from": "2022-02-01T00:00:00.000Z",
 					"to": "Još uvek"
 				},
 				"company": {
@@ -148,8 +149,8 @@
 			{
 				"title": "WordPress Developer",
 				"date": {
-					"from": "2020-01-31T23:00:00.000Z",
-					"to": "2022-01-31T23:00:00.000Z"
+					"from": "2020-02-01T00:00:00.000Z",
+					"to": "2022-01-31T00:00:00.000Z"
 				},
 				"company": {
 					"name": "BlueGrid",
@@ -166,8 +167,8 @@
 			{
 				"title": "WordPress Developer",
 				"date": {
-					"from": "2018-08-31T22:00:00.000Z",
-					"to": "2020-01-31T23:00:00.000Z"
+					"from": "2018-09-01T00:00:00.000Z",
+					"to": "2020-01-31T00:00:00.000Z"
 				},
 				"company": {
 					"name": "Ivapix",

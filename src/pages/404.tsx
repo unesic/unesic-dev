@@ -26,8 +26,18 @@ import {
 } from "@chakra-ui/react";
 
 const NotFoundPage: React.FC = () => {
+	const initialLoad = useRef(true);
 	const { colorMode, setColorMode } = useColorMode();
 	const header = useRef() as React.MutableRefObject<HTMLDivElement>;
+
+	useEffect(() => {
+		if (initialLoad.current) {
+			const mode = window.localStorage.getItem("unesicio-mode");
+			if (mode && ["light", "dark"].includes(mode)) setColorMode(mode);
+
+			initialLoad.current = false;
+		} else window.localStorage.setItem("unesicio-mode", colorMode);
+	}, [colorMode]);
 
 	const handleModeChange = useCallback((e: any) => {
 		setColorMode(e.matches ? "dark" : "light");

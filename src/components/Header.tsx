@@ -14,7 +14,7 @@ import React, {
  * Utilities and types
  */
 import { useTranslation } from "lib/hooks/useTranslation";
-import { usePlatform, Platform } from "lib/hooks/usePlatform";
+import { usePlatform } from "lib/hooks/usePlatform";
 import { DivRef } from "pages";
 import { NavItem } from "lib/types/language.types";
 
@@ -63,7 +63,7 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 		const headerImage = useColorModeValue(head_light, head_dark);
 
 		const _t = useTranslation("header");
-		const [platform] = usePlatform();
+		const { isWindows, isMacOS } = usePlatform();
 
 		const { language, toggleLanguage } = useContext(LanguageContext);
 		const [secondKey, setSecondKey] = useState<string>();
@@ -119,8 +119,8 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 
 		const onKeyDown = useCallback(
 			(e: KeyboardEvent) => {
-				if (platform === Platform.MAC && !e.metaKey) return;
-				if (platform === Platform.WIN && !e.ctrlKey) return;
+				if (isMacOS && !e.metaKey) return;
+				if (isWindows && !e.ctrlKey) return;
 
 				setNavKey.on();
 
@@ -131,17 +131,17 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 				e.preventDefault();
 				setSecondKey(char);
 			},
-			[platform, _t]
+			[isMacOS, isWindows, _t]
 		);
 
 		const onKeyUp = useCallback(
 			(e: KeyboardEvent) => {
-				if (platform === Platform.MAC && !e.metaKey) setNavKey.off();
-				if (platform === Platform.WIN && !e.ctrlKey) setNavKey.off();
+				if (isMacOS && !e.metaKey) setNavKey.off();
+				if (isWindows && !e.ctrlKey) setNavKey.off();
 
 				setSecondKey(undefined);
 			},
-			[platform]
+			[isMacOS, isWindows]
 		);
 
 		const handleMenuItemClick = useCallback(
@@ -218,9 +218,10 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 							{isDesktop ? (
 								<Tooltip
 									placement="auto"
-									label={`Use ${
-										platform === Platform.MAC ? "⌘ (command)" : "⌃ (control)"
-									} + underlined character combination to quickly.`}
+									label={_t.tooltip.replace(
+										"%kbd%",
+										isMacOS ? "⌘ (command)" : "⌃ (control)"
+									)}
 									bg={`app.${colorMode}.dusk.200`}
 									hasArrow
 								>
@@ -229,7 +230,7 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
 										onMouseEnter={setNavKey.on}
 										onMouseLeave={setNavKey.off}
 									>
-										{platform === Platform.MAC ? "⌘" : "⌃"}
+										{isMacOS ? "⌘" : "⌃"}
 									</Kbd>
 								</Tooltip>
 							) : (

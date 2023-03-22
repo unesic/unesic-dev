@@ -32,6 +32,7 @@ export interface Resume {
 }
 
 export interface Header {
+	tooltip: string;
 	nav: NavItem[];
 	resume: Resume;
 }

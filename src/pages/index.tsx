@@ -15,6 +15,7 @@ import { useColorMode } from "@chakra-ui/color-mode";
 export type DivRef = React.MutableRefObject<HTMLDivElement>;
 
 const IndexPage: React.FC = () => {
+	const initialLoad = useRef(true);
 	const header = useRef() as DivRef;
 	const hero = useRef() as DivRef;
 	const about = useRef() as DivRef;
@@ -22,7 +23,7 @@ const IndexPage: React.FC = () => {
 	const projects = useRef() as DivRef;
 	const contact = useRef() as DivRef;
 
-	const { setColorMode } = useColorMode();
+	const { colorMode, setColorMode } = useColorMode();
 
 	const refs = useMemo(
 		() => ({
@@ -35,6 +36,15 @@ const IndexPage: React.FC = () => {
 		}),
 		[]
 	);
+
+	useEffect(() => {
+		if (initialLoad.current) {
+			const mode = window.localStorage.getItem("unesicio-mode");
+			if (mode && ["light", "dark"].includes(mode)) setColorMode(mode);
+
+			initialLoad.current = false;
+		} else window.localStorage.setItem("unesicio-mode", colorMode);
+	}, [colorMode]);
 
 	const handleModeChange = useCallback((e: any) => {
 		setColorMode(e.matches ? "dark" : "light");

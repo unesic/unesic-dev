@@ -7,6 +7,7 @@ import React, { useContext, useMemo } from "react";
  * Utilities and types
  */
 import dayjs from "dayjs";
+import "dayjs/locale/sr";
 import { v4 as uuidv4 } from "uuid";
 import {
 	Job as IJob,
@@ -39,37 +40,42 @@ export const Job: React.FC<JobProps> = ({
 	const { language } = useContext(LanguageContext);
 
 	const formattedDate = useMemo(() => {
-		const { from, to } = date;
-		const { year, month } = labels;
+		dayjs.locale(language);
 
-		const now = Date.now();
 		const format = "MMMM, YYYY";
+		const fromFormatted = dayjs(date.from).format(format);
+		const dayjsTo = dayjs(date.to);
+		const toFormatted = dayjsTo.isValid() ? dayjsTo.format(format) : date.to;
 
-		const fromFrmt = dayjs(from).format(format);
-		const toValid = dayjs(to).isValid();
-		const toFrmt = toValid ? dayjs(to).format(format) : to;
+		return `${fromFormatted} - ${toFormatted}`;
+	}, [date, language]);
 
-		const yearDiff = dayjs(toValid ? dayjs(to) : now).diff(from, "years");
-		const monthDiff = dayjs(toValid ? dayjs(to) : now)
-			.subtract(yearDiff, "years")
-			.diff(from, "months");
+	const formattedPeriod = useMemo(() => {
+		const to = dayjs(date.to).isValid() ? date.to : Date.now();
+		const monthDiffTotal = dayjs(to).diff(date.from, "months") + 1;
+		const yearDiff = Math.floor(monthDiffTotal / 12);
+		const monthDiff = monthDiffTotal % 12;
 
-		const yearLabel =
-			language === ELanguage.EN
-				? year[yearDiff === 1 ? 0 : 1]
-				: year[[2, 3, 4].includes(yearDiff) ? 1 : 0];
-		const monthLabel =
-			language === ELanguage.EN
-				? month[monthDiff === 1 ? 0 : 1]
-				: month[monthDiff === 1 ? 0 : [2, 3, 4].includes(monthDiff) ? 1 : 2];
+		const isEN = language === ELanguage.EN;
 
-		const yearsFrmt = yearDiff ? `${yearDiff} ${yearLabel}` : "";
-		const monthsFrmt = monthDiff ? `${monthDiff} ${monthLabel}` : "";
+		const yearLabelEN = +!!(yearDiff - 1);
+		const yearLabelSR = [2, 3, 4].includes(yearDiff) ? 1 : 0;
+		const yearLabel = labels.year[isEN ? yearLabelEN : yearLabelSR];
 
-		const period = `${yearsFrmt} ${monthsFrmt}`.trim();
+		const monthLabelEN = +!!(monthDiff - 1);
+		const monthLabelEdgeSR = [2, 3, 4].includes(monthDiff) ? 1 : 2;
+		const monthLabelSR = monthDiff === 1 ? 0 : monthLabelEdgeSR;
+		const monthLabel = labels.month[isEN ? monthLabelEN : monthLabelSR];
 
-		return `${fromFrmt} - ${toFrmt} (${period})`;
-	}, [date]);
+		const period = (
+			<Text as="span" opacity={0.5}>
+				({yearDiff ? `${yearDiff} ${yearLabel}` : ""}
+				{monthDiff ? ` ${monthDiff} ${monthLabel}` : ""})
+			</Text>
+		);
+
+		return period;
+	}, []);
 
 	return (
 		<Box>
@@ -82,7 +88,9 @@ export const Job: React.FC<JobProps> = ({
 					</Link>
 				</Text>
 			</Text>
-			<Text variant="tech">{formattedDate}</Text>
+			<Text variant="tech">
+				{formattedDate} {formattedPeriod}
+			</Text>
 			<List spacing="2" mt="4" className="tech-list">
 				{items.map((item) => (
 					<ListItem key={uuidv4()}>{item}</ListItem>

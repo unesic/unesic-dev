@@ -6,7 +6,7 @@ import React from "react";
 /**
  * Utilities and types
  */
-import { Platform, usePlatform } from "lib/hooks/usePlatform";
+import { usePlatform } from "lib/hooks/usePlatform";
 
 /**
  * Chakra UI
@@ -17,7 +17,7 @@ import { Icon } from "@iconify/react";
 interface RibbonProps {}
 
 export const Ribbon: React.FC<RibbonProps> = () => {
-	const [platform] = usePlatform();
+	const { isMacOS } = usePlatform();
 
 	return (
 		<Stack
@@ -54,9 +54,7 @@ export const Ribbon: React.FC<RibbonProps> = () => {
 				</Link>
 				<Link
 					variant="icon"
-					href={`${
-						platform === Platform.MAC ? "facetime" : "tel"
-					}:+38162766433`}
+					href={`${isMacOS ? "facetime" : "tel"}:+38162766433`}
 					isExternal
 					aria-label="Phone call"
 				>
