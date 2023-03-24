@@ -40,13 +40,6 @@ export const Projects = React.forwardRef<HTMLDivElement, ProjectsProps>(
 					<Heading variant="h3" as="h3">
 						{_t.head}
 					</Heading>
-					<Text
-						mt="4"
-						mx={["auto", "auto", "auto", "0"]}
-						maxW={["24rem", "24rem", "24rem", "50%", "50%"]}
-					>
-						{_t.copy}
-					</Text>
 				</Box>
 
 				{_t.projects.map((project, idx) => (
