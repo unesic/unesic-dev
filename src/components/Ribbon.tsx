@@ -46,7 +46,7 @@ export const Ribbon: React.FC<RibbonProps> = () => {
 				</Link>
 				<Link
 					variant="icon"
-					href="mailto:hire@unesic.io"
+					href="mailto:hire@unesic.dev"
 					isExternal
 					aria-label="E-mail"
 				>

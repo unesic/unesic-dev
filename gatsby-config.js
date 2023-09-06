@@ -2,8 +2,8 @@ const path = require("path");
 
 module.exports = {
 	siteMetadata: {
-		url: "https://unesic.io",
-		siteUrl: "https://unesic.io",
+		url: "https://unesic.dev",
+		siteUrl: "https://unesic.dev",
 		title: "Uroš Nešić",
 		titleTemplate: "%s – Making web go brrr.",
 		description:

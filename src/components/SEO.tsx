@@ -38,7 +38,7 @@ export const SEO: React.FC<SEOProps> = ({ title, description, image }) => {
 		>
 			<meta charSet="utf-8" />
 
-			<link rel="canonical" href="https://unesic.io/" />
+			<link rel="canonical" href="https://unesic.dev/" />
 			<meta name="description" content={seo.description} />
 			<meta name="image" content={seo.image} />
 
