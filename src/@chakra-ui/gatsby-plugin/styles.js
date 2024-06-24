@@ -10,7 +10,7 @@ export const styles = {
 		ul: {
 			listStyle: "none",
 			"&.tech-list": {
-				li: {
+				"& > li": {
 					fontSize: "md",
 					fontFamily: "mono",
 					color: mode("app.light.dawn.300", "app.dark.dawn.300")(props),
@@ -26,6 +26,28 @@ export const styles = {
 						px: 1,
 						fontWeight: "bold",
 					},
+				},
+			},
+			"&.print-list": {
+				"& > li": {
+					display: "flex",
+					flexWrap: "wrap",
+					alignItems: "center",
+					fontSize: "md",
+					fontFamily: "mono",
+					color: mode("app.light.dawn.300", "app.dark.dawn.300")(props),
+					"&::before": {
+						bg: "transparent",
+						color: mode("app.light.dawn.300", "app.dark.dawn.300")(props),
+						content: "'>'",
+						display: "inline-block",
+						mr: 2,
+						px: 1,
+						fontWeight: "bold",
+					},
+					"& > div": {
+						flex: "1",
+					}
 				},
 			},
 		},
