@@ -133,17 +133,62 @@
 		},
 		"jobs": [
 			{
+				"title": "Senior Frontend Developer",
+				"date": {
+					"from": "2024-04-01T00:00:00.000Z",
+					"to": "Još uvek"
+				},
+				"company": {
+					"name": "Ingsoftware",
+					"url": "https://www.ingsoftware.com/"
+				},
+				"items": [
+					"Će bude..."
+				]
+			},
+			{
 				"title": "Frontend Developer",
 				"date": {
 					"from": "2022-02-01T00:00:00.000Z",
-					"to": "Još uvek"
+					"to": "2024-03-31T00:00:00.000Z"
 				},
 				"company": {
 					"name": "Neopix",
 					"url": "https://weareneopix.com/"
 				},
-				"items": [
-					"Će bude..."
+				"subroles": [
+					{
+						"title": "Senior Frontend Developer",
+						"date": {
+							"from": "2024-01-01T00:00:00.000Z",
+							"to": "2024-03-31T00:00:00.000Z"
+						},
+						"company": {
+							"name": "Neopix",
+							"url": "https://weareneopix.com/"
+						},
+						"items": [
+							"Pokazao vođstvo kao ko-tim lider, vodeći i mentorišući manje iskusne članove tima.",
+							"Proaktivno učestvovao u definisanju obima posla, proceni i planiranju projekata.",
+							"Učestvovao u procesu otkrivanja proizvoda za buduće projekte, uspešno prevodeći biznis zahteve u feature setove."
+						]
+					},
+					{
+						"title": "Frontend Developer",
+						"date": {
+							"from": "2022-02-01T00:00:00.000Z",
+							"to": "2023-12-31T00:00:00.000Z"
+						},
+						"company": {
+							"name": "Neopix",
+							"url": "https://weareneopix.com/"
+						},
+						"items": [
+							"Postizao rezultate kroz efikasnu komunikaciju, temeljnim rešavanjem problema i oštrim okom za detalje.",
+							"Blisko sarađivao sa UI/UX dizajnerima, menadžerima i developerima sa ciljem dostavljanja kvalitetnih proizvoda za klijente iz raznih industrija.",
+							"Kao deo tima koristio SCRUM na klijentskim projektima radi efikasnog planiranja i završavanja projekata na vreme."
+						]
+					}
 				]
 			},
 			{

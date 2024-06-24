@@ -133,17 +133,62 @@
 		},
 		"jobs": [
 			{
+				"title": "Senior Frontend Developer",
+				"date": {
+					"from": "2024-04-01T00:00:00.000Z",
+					"to": "Present"
+				},
+				"company": {
+					"name": "Ingsoftware",
+					"url": "https://www.ingsoftware.com/"
+				},
+				"items": [
+					"Coming soon..."
+				]
+			},
+			{
 				"title": "Frontend Developer",
 				"date": {
 					"from": "2022-02-01T00:00:00.000Z",
-					"to": "Present"
+					"to": "2024-03-31T00:00:00.000Z"
 				},
 				"company": {
 					"name": "Neopix",
 					"url": "https://weareneopix.com/"
 				},
-				"items": [
-					"Coming soon..."
+				"subroles": [
+					{
+						"title": "Senior Frontend Developer",
+						"date": {
+							"from": "2024-01-01T00:00:00.000Z",
+							"to": "2024-03-31T00:00:00.000Z"
+						},
+						"company": {
+							"name": "Neopix",
+							"url": "https://weareneopix.com/"
+						},
+						"items": [
+							"Demonstrated leadership as a co-team lead, guiding and mentoring junior team members to foster skill development and team cohesion.",
+							"Took a proactive role in scoping, estimating, and planning project timelines, user stories and tasks, ensuring clarity and alignment with client objectives.",
+							"Been a part of the product discovery process for future client’s projects, successfully translating business requirements into feature sets."
+						]
+					},
+					{
+						"title": "Frontend Developer",
+						"date": {
+							"from": "2022-02-01T00:00:00.000Z",
+							"to": "2023-12-31T00:00:00.000Z"
+						},
+						"company": {
+							"name": "Neopix",
+							"url": "https://weareneopix.com/"
+						},
+						"items": [
+							"Consistently delivered exceptional results through effective communication, problem-solving, and attention to detail.",
+							"Collaborated closely with UI/UX designers, project managers, and developers to deliver high-quality digital products for diverse clients across industries.",
+							"Utilized SCRUM to effectively manage project workflows and meet deadlines."
+						]
+					}
 				]
 			},
 			{

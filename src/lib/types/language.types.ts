@@ -52,7 +52,7 @@ export interface About {
 	tech: string[][];
 }
 
-export interface Job {
+interface JobBase {
 	title: string;
 	date: {
 		from: string;
@@ -62,7 +62,11 @@ export interface Job {
 		name: string;
 		url: string;
 	};
-	items: string[];
+	items?: string[];
+}
+
+export interface Job extends JobBase {
+	subroles?: JobBase[];
 }
 
 export interface Experience {

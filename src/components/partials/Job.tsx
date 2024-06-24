@@ -1,7 +1,7 @@
 /**
  * Base
  */
-import React, { useContext, useMemo } from "react";
+import React, { useCallback, useContext } from "react";
 
 /**
  * Utilities and types
@@ -25,6 +25,7 @@ import {
 	Text,
 	Link,
 	useColorMode,
+	Flex,
 } from "@chakra-ui/react";
 
 type JobProps = IJob & Pick<IExperience, "labels">;
@@ -34,23 +35,26 @@ export const Job: React.FC<JobProps> = ({
 	date,
 	company,
 	items,
+	subroles,
 	labels,
 }) => {
 	const { colorMode } = useColorMode();
 	const { language } = useContext(LanguageContext);
 
-	const formattedDate = useMemo(() => {
-		dayjs.locale(language);
+	const formatDate = useCallback(
+		(date: JobProps["date"], format: string = "MMMM, YYYY") => {
+			dayjs.locale(language);
 
-		const format = "MMMM, YYYY";
-		const fromFormatted = dayjs(date.from).format(format);
-		const dayjsTo = dayjs(date.to);
-		const toFormatted = dayjsTo.isValid() ? dayjsTo.format(format) : date.to;
+			const fromFormatted = dayjs(date.from).format(format);
+			const dayjsTo = dayjs(date.to);
+			const toFormatted = dayjsTo.isValid() ? dayjsTo.format(format) : date.to;
 
-		return `${fromFormatted} - ${toFormatted}`;
-	}, [date, language]);
+			return `${fromFormatted} - ${toFormatted}`.replaceAll(".", "");
+		},
+		[date, language]
+	);
 
-	const formattedPeriod = useMemo(() => {
+	const formatPeriod = useCallback((date: JobProps["date"]) => {
 		const to = dayjs(date.to).isValid() ? date.to : Date.now();
 		const monthDiffTotal = dayjs(to).diff(date.from, "months") + 1;
 		const yearDiff = Math.floor(monthDiffTotal / 12);
@@ -67,10 +71,14 @@ export const Job: React.FC<JobProps> = ({
 		const monthLabelSR = monthDiff === 1 ? 0 : monthLabelEdgeSR;
 		const monthLabel = labels.month[isEN ? monthLabelEN : monthLabelSR];
 
+		const label = [
+			...(yearDiff ? [yearDiff, yearLabel] : []),
+			...(monthDiff ? [monthDiff, monthLabel] : []),
+		].join(" ");
+
 		const period = (
 			<Text as="span" opacity={0.5}>
-				({yearDiff ? `${yearDiff} ${yearLabel}` : ""}
-				{monthDiff ? ` ${monthDiff} ${monthLabel}` : ""})
+				({label})
 			</Text>
 		);
 
@@ -79,9 +87,13 @@ export const Job: React.FC<JobProps> = ({
 
 	return (
 		<Box>
-			<Text variant="light" mt="4">
+			<Text variant="light" mt="4" fontWeight="bold">
 				{title}{" "}
-				<Text as="span" color={`app.${colorMode}.accent.solid`}>
+				<Text
+					as="span"
+					color={`app.${colorMode}.accent.solid`}
+					fontWeight="normal"
+				>
 					@{" "}
 					<Link variant="external" href={company.url} isExternal>
 						{company.name}
@@ -89,13 +101,36 @@ export const Job: React.FC<JobProps> = ({
 				</Text>
 			</Text>
 			<Text variant="tech">
-				{formattedDate} {formattedPeriod}
+				{formatDate(date)} {formatPeriod(date)}
 			</Text>
-			<List spacing="2" mt="4" className="tech-list">
-				{items.map((item) => (
-					<ListItem key={uuidv4()}>{item}</ListItem>
-				))}
-			</List>
+			{items ? (
+				<List spacing="2" mt="4" className="tech-list">
+					{items?.map((item) => (
+						<ListItem key={uuidv4()}>{item}</ListItem>
+					))}
+				</List>
+			) : null}
+			{subroles ? (
+				<List spacing="2" mt="4" className="print-list">
+					{subroles.map((subrole) => (
+						<ListItem>
+							<Flex>
+								<Text variant="light" fontWeight="bold">
+									{subrole.title}
+								</Text>
+								<Text as="span" opacity={0.5} ml="2">
+									{formatDate(subrole.date, "MMM, YYYY")}
+								</Text>
+							</Flex>
+							<List spacing="2" mt="2" ml="6" className="tech-list">
+								{subrole.items?.map((item) => (
+									<ListItem key={uuidv4()}>{item}</ListItem>
+								))}
+							</List>
+						</ListItem>
+					))}
+				</List>
+			) : null}
 		</Box>
 	);
 };
